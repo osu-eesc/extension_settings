@@ -3,7 +3,6 @@
 
 /**
 * Implementation of hook_install()
- * This is just a place holder as the module doesn't require this hook
 */
 function extension_settings_install() {
   variable_set('extension_settings_header_text', '');
