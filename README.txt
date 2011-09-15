@@ -1,0 +1,1 @@
+The Extension Settings module allows a site admin the choose which features are enabled and per site configuration settings. Settings used in extension theme.
