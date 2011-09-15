@@ -1,0 +1,321 @@
+<?php
+// $Id: extension_settings.module 
+/**
+ * Extension Settings
+ * Helper module for EESC managed Drupal sites.
+ * This module provides configuration settings.
+ */
+ 
+ 
+/**
+ * Implementation of hook_init().
+ */
+function extension_settings_init() {
+  drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/ggai.css');
+  drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/extension_settings.css');
+}
+
+/**
+ * Implementation of hook_help()
+ * Provide online user help.
+ *
+ * @param $path
+ * @param $arg
+ * @return
+ *   Help text
+ */
+function extension_settings_help($path, $arg) {
+  switch ($path) {
+    case 'admin/settings/extension_settings':
+      $output = file_get_contents(drupal_get_path('module', 'extension_settings') .'/README.txt');
+       return '<div>'. check_plain($output) .'</div>';
+    case 'admin/help#extension_settings':
+      return '<p>'. t('The Extension Settings module provides common blocks and custom site configuration settings.') .'</p>';
+    default:
+      return '';
+  }
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function extension_settings_perm() {
+  $extension_permissions[] = 'administer extension settings';
+  $extension_permissions[] = 'administer extension global content';
+  return $extension_permissions;
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function extension_settings_menu() {
+  $items = array();
+  $items['admin/settings/extension'] = array(
+    'title' => t('Extension settings'),
+    'description' => t('Administer settings related to the Extension Settings module.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_admin_settings'),
+    'access arguments' => array('administer extension settings'),
+    'file' => 'includes/extension_settings.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/settings/extension/admin'] = array(
+    'title' => t('Extension settings'),
+    'description' => t('Administer settings related to the Extension Settings module.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_admin_settings'),
+    'access arguments' => array('administer extension settings'),
+    'file' => 'includes/extension_settings.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/settings/extension/global'] = array(
+    'title' => t('Global content'),
+    'description' => t('Administer global content accross all extension sites.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_global_block1'),
+    'access arguments' => array('administer extension global content'),
+    'file' => 'includes/extension_settings.global.block1.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['admin/settings/extension/global/block1'] = array(
+    'title' => t('Block 1'),
+    'description' => t('Global content for block 1.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_global_block1'),
+    'access arguments' => array('administer extension global content'),
+    'file' => 'includes/extension_settings.global.block1.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/settings/extension/global/block2'] = array(
+    'title' => t('Block 2'),
+    'description' => t('Global content for block 2.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_global_block2'),
+    'access arguments' => array('administer extension global content'),
+    'weight' => 2,
+    'file' => 'includes/extension_settings.global.block2.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['globalblock1'] = array(
+    'title' => t('Global Content Block 1'),
+    'description' => t('Global content for block 1.'),
+    'page callback' => 'extension_settings_global_block_1_code',
+    'access callback' => TRUE,
+  );
+  $items['globalblock2'] = array(
+    'title' => t('Global Content Block 2'),
+    'description' => t('Global content for block 2.'),
+    'page callback' => 'extension_settings_global_block_2_code',
+    'access callback' => TRUE,
+  );
+
+
+
+  return $items;
+}
+
+/**
+* Implementation of hook_block().
+* @param string $op one of "list", "view", "save" and "configure"
+* @param integer $delta code to identify the block
+*/
+
+function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == 'list') {
+    $blocks[0]['info'] = t('Life: Get good at it sidebar links');
+    $blocks[1]['info'] = t('Badge - Gardening');
+    $blocks[2]['info'] = t('Badge - Trees and Woodlands');
+    $blocks[3]['info'] = t('Badge - Food Preservation');
+    $blocks[4]['info'] = t('Badge - Food and Nutrition');
+    $blocks[5]['info'] = t('Badge - Family and Youth');
+    $blocks[6]['info'] = t('Badge - Health and Wellness');
+    $blocks[7]['info'] = t('Badge - Small Farms');
+    $blocks[8]['info'] = t('OSU Search block');
+    
+    $blocks[9]['info'] = t('Global Content Block 1');
+    $blocks[10]['info'] = t('Global Content Block 2');
+    
+    return $blocks;
+  } else if ($op == 'view') {
+    $block = array();
+    switch ($delta) {
+      case 0:
+        $ggai_output = '
+          <div id="ggai-block" class="ggai-block">
+            <div class="ggai-block-header"></div>
+            <div class="wm_sun">
+              <ul>
+                <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
+                <li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+                <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
+                <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
+                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
+                <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
+              </ul>
+              <p><a href="http://extension.oregonstate.edu/node/319">View all »</a></p>
+            </div>
+          </div>';
+        $block['subject'] = t('');
+        $block['content'] = t($ggai_output);
+        return $block;
+      case 1:
+        $badge_content = '<a title="Oregon State University Extension Service: Gardening" href="http://extension.oregonstate.edu/node/320"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg320.gif" width="190" height="52" alt="Oregon State University Extension Service: Gardening badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 2:
+        $badge_content = '<a title="Oregon State University Extension Service: Trees &amp; Woodlands" href="http://extension.oregonstate.edu/node/3333"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg3333.gif" width="190" height="52" alt="Oregon State University Extension Service: Trees &amp; Woodlands badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 3:
+        $badge_content = '<a title="Oregon State University Extension Service: Food Preservation" href="http://extension.oregonstate.edu/node/305"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg305.gif" width="190" height="52" alt="Oregon State University Extension Service: Food Preservation badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 4:
+        $badge_content = '<a title="Oregon State University Extension Service: Food &amp; Nutrition" href="http://extension.oregonstate.edu/node/306"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg306.gif" width="190" height="52" alt="Oregon State University Extension Service: Food &amp; Nutrition badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 5:
+        $badge_content = '<a title="Oregon State University Extension Service: Family &amp; Youth" href="http://extension.oregonstate.edu/node/307"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg307.gif" width="190" height="52" alt="Oregon State University Extension Service: Family &amp; Youth badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 6:
+        $badge_content = '<a title="Oregon State University Extension Service: Health &amp; Wellness" href="http://extension.oregonstate.edu/node/308"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg308.gif" width="190" height="52" alt="Oregon State University Extension Service: Health &amp; Wellness badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 7:
+        $badge_content = '<a title="Oregon State University Extension Service: Small Farms" href="http://extension.oregonstate.edu/node/304"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg304.gif" width="190" height="52" alt="Oregon State University Extension Service: Small Farms badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 8:
+        $osu_search_content = 'place holder';
+        $block['subject'] = t('');
+        $block['content'] = t($osu_search_content);
+        return $block;
+      case 9:
+        $block['subject'] = t('');
+        $block['content'] = extension_settings_globalblock_content('1');
+        return $block;
+      case 10:
+        $block['subject'] = t('');
+        $block['content'] = extension_settings_globalblock_content('2');
+        return $block;
+
+    }
+  }
+}
+
+function extension_settings_globalblock_content($globalblock_id) {
+  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
+  $globaldata = file_get_contents($fileurl);
+  if ($globaldata) {
+    $regionslength = strpos($globaldata, '</regions>') - 47;
+    $globalregions = explode(',', substr($globaldata, 47, $regionslength));
+    $site_region = variable_get('extension_settings_region', '');
+    if (in_array($site_region, $globalregions)) {
+      $globalcontentstart = strpos($globaldata, '</regions>') + 31;
+      $globalblock_content = substr($globaldata, $globalcontentstart, -22);
+    } 
+  } else {
+    $globalblock_content = '';
+  }
+  return $globalblock_content;
+}
+
+/**
+ * function to remove all given values from an array
+*/
+function extension_settings_remove_item_by_value($array, $val = '', $preserve_keys = true) {
+  if (empty($array) || !is_array($array)) return false;
+  if (!in_array($val, $array)) return $array;
+  foreach($array as $key => $value) {
+    if ($value == $val) unset($array[$key]);
+  }
+  return ($preserve_keys === true) ? $array : array_values($array);
+}
+
+function extension_settings_global_block_1_code() {
+  $global_content = variable_get('extension_settings_global_content_1', '');
+  if ($global_content == '') {
+    return NULL;
+  } else {
+    $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
+    $xml_data['regions'] = implode(',', $global_content['regions']);
+    $xml_data['content'] = $global_content['content'];
+    
+    print '<?xml version="1.0" encoding="UTF-8"?>';
+    print '<regions>' . $xml_data['regions'] . '</regions>';
+    print '<globalblock_content>' . $xml_data['content'] . '</globalblock_content>';
+    
+    return NULL;
+  }
+}
+
+function extension_settings_global_block_2_code() {
+  $global_content = variable_get('extension_settings_global_content_2', '');
+  if ($global_content == '') {
+    return NULL;
+  } else {
+    $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
+    $xml_data['regions'] = implode(',', $global_content['regions']);
+    $xml_data['content'] = $global_content['content'];
+    
+    print '<?xml version="1.0" encoding="UTF-8"?>';
+    print '<regions>' . $xml_data['regions'] . '</regions>';
+    print '<globalblock_content>' . $xml_data['content'] . '</globalblock_content>';
+    
+    return NULL;
+  }
+}
+
+/**
+ * Adds a comma seperated list for multivalue text fields
+*/
+
+/**
+ * Implementation of hook_theme().
+ */
+function extension_settings_theme() {
+ return array(
+  'extension_settings_formatter_comma' => array(
+   'arguments' => array(
+    'element' => NULL,
+   ),
+  ),
+ );
+}
+
+/**
+ * Implementation of hook_field_formatter_info().
+ */
+function extension_settings_field_formatter_info() {
+ return array(
+  'comma' => array(
+   'label' => t('Comma separated'), 
+   'multiple values' => CONTENT_HANDLE_MODULE, 
+   'field types' => array('text'),
+  ),
+ ); 
+}
+
+/**
+ * Theme function for Comma separated
+ */
+function theme_extension_settings_formatter_comma($element) {
+ $i=0;
+ $items=array();
+ while(isset($element[$i])){
+  $item=theme_text_formatter_default($element[$i]);
+  if(!empty($item)){
+   $items[]=$item;
+  }
+  $i++;
+ }
+ return implode(', ', $items);
+}

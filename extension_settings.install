@@ -1,0 +1,19 @@
+<?php
+// $Id: extension_settings.install
+
+/**
+* Implementation of hook_install()
+ * This is just a place holder as the module doesn't require this hook
+*/
+/*function extension_settings_install() {
+
+}*/
+
+/**
+* Implementation of hook_uninstall()
+*/
+function extension_settings_uninstall() {
+  // Remove the module from the system table
+  db_query("DELETE FROM {system} WHERE `name` = 'extension_settings'");
+	db_query("DELETE FROM {variable} WHERE `name` LIKE 'extension_settings_%'");
+}

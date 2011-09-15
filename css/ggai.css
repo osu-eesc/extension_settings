@@ -1,0 +1,85 @@
+/* get good at it block styles */
+div#ggai-block.ggai-block {
+	width: 100%; 
+	padding: 0 9% 0px 0; 
+	margin: 30px auto auto -6%; 
+}
+.first div#ggai-block.ggai-block {
+  margin: 4px auto auto -6%; 
+}
+/* Home bg img of boy*/
+.front div#ggai-block.ggai-block div.wm_sun {
+	background: url('../images/gfx_boy.png') right bottom no-repeat !important;
+}
+
+div#ggai-block.ggai-block div.ggai-block-header {
+	display: block; 
+	margin-left: 9%;
+	background: url('../images/gfx_hdr_ggai.png') no-repeat;
+	width: 243px;
+	height: 30px;
+}
+.layout-first-main-last div#ggai-block.ggai-block div.ggai-block-header {
+	background: url('../images/gfx_hdr_ggai_small.png') no-repeat;
+	width: 185px;
+	height: 23px;
+}
+div#ggai-block.ggai-block div.wm_sun {
+	margin: 15px -11% -1px 25%;
+	padding: 0 0 30px 0;
+	background: url('../images/gfx_wm_sun.gif') right bottom no-repeat;
+}
+.not-front .last div#ggai-block.ggai-block div.wm_sun {
+	background: url('../images/gfx_wm_sun_fade.gif') right bottom no-repeat !important;
+}
+
+div#ggai-block.ggai-block div.wm_sun ul,
+div#ggai-block.ggai-block div.wm_sun ul a {
+	list-style-position: inside;
+	text-align: left; 
+	color: #ca8602; 
+	font-weight: bold; 
+	font-size: 13px; 
+	font-family: 'EksjaExtremesRegular', Arial, Helvetica, Verdana, sans-serif;
+}
+
+div#ggai-block.ggai-block div.wm_sun ul li.item-1 {
+	list-style-image: url('../images/gfx_ico_spade.png');
+}
+
+div#ggai-block.ggai-block div.wm_sun ul li.item-2 {
+	list-style-image: url('../images/gfx_ico_wood.png');
+}
+
+/* this is the small farms section, replaced by woodlands
+div#ggai-block.ggai-block div.wm_sun ul li.item-2 {
+	list-style-image: url('../images/gfx_ico_wheat.png');
+} */
+
+div#ggai-block.ggai-block div.wm_sun ul li.item-3 {
+	list-style-image: url('../images/gfx_ico_pot.png');
+}
+
+div#ggai-block.ggai-block div.wm_sun ul li.item-4 {
+	list-style-image: url('../images/gfx_ico_apple.png');
+}
+
+div#ggai-block.ggai-block div.wm_sun ul li.item-5 {
+	list-style-image: url('../images/gfx_ico_fam.png');
+}
+
+div#ggai-block.ggai-block div.wm_sun ul li.item-6 {
+	list-style-image: url('../images/gfx_ico_snake.png');
+}
+
+div#ggai-block.ggai-block div.wm_sun ul li span a {
+	line-height: 32px; 
+	vertical-align: top;
+}
+
+
+/* removing extra spacing*/
+#sidebar-last .block-extension_settings {
+    padding-bottom: 20px !important;
+}
+
