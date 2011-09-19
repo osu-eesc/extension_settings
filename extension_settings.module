@@ -103,18 +103,6 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.global.block2.inc',
     'type' => MENU_LOCAL_TASK,
   );
-  $items['globalblock1'] = array(
-    'title' => t('Global Content Block 1'),
-    'description' => t('Global content for block 1.'),
-    'page callback' => 'extension_settings_global_block_1_code',
-    'access callback' => TRUE,
-  );
-  $items['globalblock2'] = array(
-    'title' => t('Global Content Block 2'),
-    'description' => t('Global content for block 2.'),
-    'page callback' => 'extension_settings_global_block_2_code',
-    'access callback' => TRUE,
-  );
 
 
 
