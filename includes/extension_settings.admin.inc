@@ -55,8 +55,8 @@ function extension_settings_admin_settings() {
   
   $form['configuration_settings']['extension_settings_region'] = array(
     '#type' => 'radios',
-    '#title' => t('Region'),
-    '#description' => t('Select the geographical region of the website.'),
+    '#title' => t('Current Site Region'),
+    '#description' => t('Select the geographical region of the current website.'),
     '#options' => array(
       '1' => '<span class="radio-label">North West</span>',
       '2' => '<span class="radio-label">North Central</span>',
