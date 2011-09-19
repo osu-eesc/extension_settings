@@ -1,17 +1,17 @@
 #extension-settings-global-block1 input[type=checkbox],
 #extension-settings-global-block2 input[type=checkbox],
-#edit-extension-settings-region-1-wrapper input[type=radio],
-#edit-extension-settings-region-2-wrapper input[type=radio],
-#edit-extension-settings-region-3-wrapper input[type=radio],
-#edit-extension-settings-region-4-wrapper input[type=radio],
-#edit-extension-settings-region-5-wrapper input[type=radio],
-#edit-extension-settings-region-6-wrapper input[type=radio] {
+#edit-extension-settings-region input,
+#edit-extension-settings-region input,
+#edit-extension-settings-region input,
+#edit-extension-settings-region input,
+#edit-extension-settings-region input,
+#edit-extension-settings-region input {
   display:none;
 }
 
 
-#edit-regions-1-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-1 + span {
+#edit-regions-1 + label,
+#edit-extension-settings-region-1 + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: 0 0;
   height: 186px;
@@ -21,15 +21,15 @@
   cursor: pointer;
 }
 
-#edit-regions-1-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-1:checked + span {
+#edit-regions-1:checked + label,
+#edit-extension-settings-region-1:checked + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: 0 421px;
 
 }
 
-#edit-regions-2-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-2-wrapper input[type=radio] + span {
+#edit-regions-2 + label,
+#edit-extension-settings-region-2 + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -162px 0;
   height: 195px;
@@ -39,15 +39,15 @@
   cursor: pointer;
 }
 
-#edit-regions-2-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-2-wrapper input[type=radio]:checked + span {
+#edit-regions-2:checked + label,
+#edit-extension-settings-region-2:checked + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -162px 421px;
 
 }
 
-#edit-regions-3-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-3-wrapper input[type=radio] + span {
+#edit-regions-3 + label,
+#edit-extension-settings-region-3 + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -310px 0;
   height: 179px;
@@ -57,15 +57,15 @@
   cursor: pointer;
 }
 
-#edit-regions-3-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-3-wrapper input[type=radio]:checked + span {
+#edit-regions-3:checked + label,
+#edit-extension-settings-region-3:checked + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -310px 421px;
 
 }
 
-#edit-regions-4-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-4-wrapper input[type=radio] + span {
+#edit-regions-4 + label,
+#edit-extension-settings-region-4 + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: 0 -222px;
   height: 199px;
@@ -75,15 +75,15 @@
   cursor: pointer;
 }
 
-#edit-regions-4-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-4-wrapper input[type=radio]:checked + span {
+#edit-regions-4:checked + label,
+#edit-extension-settings-region-4:checked + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: 0px 199px;
 
 }
 
-#edit-regions-5-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-5-wrapper input[type=radio] + span {
+#edit-regions-5 + label,
+#edit-extension-settings-region-5 + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -188px -280px;
   height: 141px;
@@ -93,15 +93,15 @@
   cursor: pointer;
 }
 
-#edit-regions-5-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-5-wrapper input[type=radio]:checked + span {
+#edit-regions-5:checked + label,
+#edit-extension-settings-region-5:checked + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -188px -711px;
 
 }
 
-#edit-regions-6-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-6-wrapper input[type=radio] + span {
+#edit-regions-6 + label,
+#edit-extension-settings-region-6 + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -382px -205px;
   height: 216px;
@@ -111,14 +111,14 @@
   cursor: pointer;
 }
 
-#edit-regions-6-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-6-wrapper input[type=radio]:checked + span {
+#edit-regions-6:checked + label,
+#edit-extension-settings-region-6:checked + label {
   background-image: url('../images/oregon_exploded.png');
   background-position: -382px -636px;
 
 }
 
-#oregon-region .form-radios,
+#edit-extension-settings-region,
 #extension-settings-global-block1 .form-checkboxes,
 #extension-settings-global-block2 .form-checkboxes {
   position: relative;
@@ -126,48 +126,47 @@
   width: 510px;
 }
 
-#extension-settings-global-block1 .checkbox-label,
-#extension-settings-global-block2 .checkbox-label,
-#extension-settings-admin-settings .radio-label {
-  text-indent: -9999em;
+#edit-regions .checkbox-label,
+#edit-extension-settings-region .radio-label {
+  font-size: 0;
 }
 
-#edit-regions-1-wrapper,
+#edit-regions .form-item-regions-1,
 #edit-extension-settings-region-1-wrapper {
   position: absolute;
   top: 0;
   left: 30px;
 }
 
-#edit-regions-2-wrapper,
+#edit-regions .form-item-regions-2,
 #edit-extension-settings-region-2-wrapper {
   position: absolute;
   top: 42px;
   left: 163px;
 }
 
-#edit-regions-3-wrapper,
+#edit-regions .form-item-regions-3,
 #edit-extension-settings-region-3-wrapper {
   position: absolute;
   top: 24px;
   left: 280px;
 }
 
-#edit-regions-4-wrapper,
+#edit-regions .form-item-regions-4,
 #edit-extension-settings-region-4-wrapper {
   position: absolute;
   top: 178px;
   left: 0;
 }
 
-#edit-regions-5-wrapper,
+#edit-regions .form-item-regions-5,
 #edit-extension-settings-region-5-wrapper{
   position: absolute;
   top: 236px;
   left: 144px;
 }
 
-#edit-regions-6-wrapper,
+#edit-regions .form-item-regions-6,
 #edit-extension-settings-region-6-wrapper {
   position: absolute;
   top: 161px;

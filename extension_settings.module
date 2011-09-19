@@ -37,9 +37,9 @@ function extension_settings_help($path, $arg) {
 }
 
 /**
- * Implementation of hook_perm().
+ * Implementation of hook_permission().
  */
-function extension_settings_perm() {
+function extension_settings_permission() {
   return array(
     'administer extension settings' => array(
       'title' => t('Administer Extension Settings'),

@@ -12,6 +12,7 @@ function extension_settings_global_block1() {
     $default_values['regions']['4'] = '4';
     $default_values['regions']['5'] = '5';
     $default_values['regions']['6'] = '6';
+    $default_values['content'] = '';
   }
   
   $form['global_content'] = array(
@@ -44,7 +45,7 @@ function extension_settings_global_block1() {
     '#default_value' => $default_values['content'],
     '#required' => TRUE
   );
- 
+  
  return system_settings_form($form);
 }
 
@@ -67,8 +68,9 @@ function extension_settings_global_block1_submit($form, &$form_state) {
   drupal_set_message('Global content for block 1 has been saved.');
 }
 
-function extension_settings_form_extension_settings_global_block1_alter($form, &$form_state) {
+function extension_settings_form_extension_settings_global_block1_alter($form, &$form_state, $form_id) {
   $form['buttons']['submit']['#submit'][] = 'extension_settings_global_block1_submit';
+  $form['buttons']['submit']['#value'][] = 'extension_settings_global_block1_submit';
   $form['buttons']['reset']['#value'] = 'Clear global content from block 1';
   $form['buttons']['reset']['#submit'][] = 'extension_settings_global_block1_clear';
 }
