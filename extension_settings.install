@@ -14,6 +14,8 @@
 */
 function extension_settings_uninstall() {
   // Remove the module from the system table
-  db_query("DELETE FROM {system} WHERE `name` = 'extension_settings'");
-	db_query("DELETE FROM {variable} WHERE `name` LIKE 'extension_settings_%'");
+  db_delete('system')
+    ->condition('name', 'extension_settings');
+  db_delete('variable')
+    ->condition('name', 'extension_settings_%', 'LIKE');
 }

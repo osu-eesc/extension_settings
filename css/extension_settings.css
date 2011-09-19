@@ -9,8 +9,9 @@
   display:none;
 }
 
+
 #edit-regions-1-wrapper input[type=checkbox] + span,
-#edit-extension-settings-region-1-wrapper input[type=radio] + span {
+#edit-extension-settings-region-1 + span {
   background-image: url('../images/oregon_exploded.png');
   background-position: 0 0;
   height: 186px;
@@ -21,7 +22,7 @@
 }
 
 #edit-regions-1-wrapper input[type=checkbox]:checked + span,
-#edit-extension-settings-region-1-wrapper input[type=radio]:checked + span {
+#edit-extension-settings-region-1:checked + span {
   background-image: url('../images/oregon_exploded.png');
   background-position: 0 421px;
 

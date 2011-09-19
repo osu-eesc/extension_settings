@@ -26,7 +26,7 @@ function extension_settings_init() {
  */
 function extension_settings_help($path, $arg) {
   switch ($path) {
-    case 'admin/settings/extension_settings':
+    case 'admin/config/extension_settings':
       $output = file_get_contents(drupal_get_path('module', 'extension_settings') .'/README.txt');
        return '<div>'. check_plain($output) .'</div>';
     case 'admin/help#extension_settings':
@@ -40,9 +40,16 @@ function extension_settings_help($path, $arg) {
  * Implementation of hook_perm().
  */
 function extension_settings_perm() {
-  $extension_permissions[] = 'administer extension settings';
-  $extension_permissions[] = 'administer extension global content';
-  return $extension_permissions;
+  return array(
+    'administer extension settings' => array(
+      'title' => t('Administer Extension Settings'),
+      'description' => t('Change settings set in the Extension Settings module'),
+    ),
+    'administer extension global content' => array(
+      'title' => t('Administer Extension global content'),
+      'description' => t('Set content to display in the global content blocks'),
+    ),
+  );
 }
 
 /**
@@ -50,7 +57,7 @@ function extension_settings_perm() {
  */
 function extension_settings_menu() {
   $items = array();
-  $items['admin/settings/extension'] = array(
+  $items['admin/config/extension'] = array(
     'title' => t('Extension settings'),
     'description' => t('Administer settings related to the Extension Settings module.'),
     'page callback' => 'drupal_get_form',
@@ -59,7 +66,7 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.admin.inc',
     'type' => MENU_NORMAL_ITEM,
   );
-  $items['admin/settings/extension/admin'] = array(
+  $items['admin/config/extension/admin'] = array(
     'title' => t('Extension settings'),
     'description' => t('Administer settings related to the Extension Settings module.'),
     'page callback' => 'drupal_get_form',
@@ -68,7 +75,7 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.admin.inc',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
-  $items['admin/settings/extension/global'] = array(
+  $items['admin/config/extension/global'] = array(
     'title' => t('Global content'),
     'description' => t('Administer global content accross all extension sites.'),
     'page callback' => 'drupal_get_form',
@@ -77,7 +84,7 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.global.block1.inc',
     'type' => MENU_LOCAL_TASK,
   );
-  $items['admin/settings/extension/global/block1'] = array(
+  $items['admin/config/extension/global/block1'] = array(
     'title' => t('Block 1'),
     'description' => t('Global content for block 1.'),
     'page callback' => 'drupal_get_form',
@@ -86,7 +93,7 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.global.block1.inc',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
-  $items['admin/settings/extension/global/block2'] = array(
+  $items['admin/config/extension/global/block2'] = array(
     'title' => t('Block 2'),
     'description' => t('Global content for block 2.'),
     'page callback' => 'drupal_get_form',
@@ -281,6 +288,8 @@ function extension_settings_global_block_2_code() {
 /**
  * Implementation of hook_theme().
  */
+
+/*
 function extension_settings_theme() {
  return array(
   'extension_settings_formatter_comma' => array(
@@ -294,6 +303,8 @@ function extension_settings_theme() {
 /**
  * Implementation of hook_field_formatter_info().
  */
+
+/*
 function extension_settings_field_formatter_info() {
  return array(
   'comma' => array(
@@ -307,6 +318,8 @@ function extension_settings_field_formatter_info() {
 /**
  * Theme function for Comma separated
  */
+ 
+/* 
 function theme_extension_settings_formatter_comma($element) {
  $i=0;
  $items=array();
@@ -319,3 +332,5 @@ function theme_extension_settings_formatter_comma($element) {
  }
  return implode(', ', $items);
 }
+
+*/
