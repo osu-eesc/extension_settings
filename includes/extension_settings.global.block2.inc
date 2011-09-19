@@ -12,11 +12,12 @@ function extension_settings_global_block2() {
     $default_values['regions']['4'] = '4';
     $default_values['regions']['5'] = '5';
     $default_values['regions']['6'] = '6';
+    $default_values['content'] = '';
   }
   
   $form['global_content'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Block 2 global content'),
+    '#title' => t('block 2 global content'),
     '#collapsible' => FALSE,
     '#collapsed' => FALSE
   );
@@ -44,16 +45,21 @@ function extension_settings_global_block2() {
     '#default_value' => $default_values['content'],
     '#required' => TRUE
   );
- 
+  
  return system_settings_form($form);
 }
 
-/**
- * Form submit logic for the global content clear button.
- */
-function extension_settings_global_block2_clear($form, &$form_state) {
-  variable_del('extension_settings_global_content_2');
-  drupal_set_message('Global content for block 2 has been cleared.');
+function extension_settings_form_extension_settings_global_block2_alter(&$form, &$form_state, $form_id) {
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#submit' => array('extension_settings_global_block2_submit'),
+    '#value' => t('Save Configuration'),
+  );
+  $form['actions']['reset'] = array(
+    '#type' => 'submit',
+    '#value' => t('Clear global content from block 2'),
+    '#submit' => array('extension_settings_global_block2_clear'),
+  );
 }
 
 /**
@@ -67,8 +73,10 @@ function extension_settings_global_block2_submit($form, &$form_state) {
   drupal_set_message('Global content for block 2 has been saved.');
 }
 
-function extension_settings_form_extension_settings_global_block2_alter($form, &$form_state) {
-  $form['buttons']['submit']['#submit'][] = 'extension_settings_global_block2_submit';
-  $form['buttons']['reset']['#value'] = 'Clear global content from block 2';
-  $form['buttons']['reset']['#submit'][] = 'extension_settings_global_block2_clear';
+/**
+ * Form submit logic for the global content clear button.
+ */
+function extension_settings_global_block2_clear($form, &$form_state) {
+  variable_del('extension_settings_global_content_2');
+  drupal_set_message('Global content for block 2 has been cleared.');
 }

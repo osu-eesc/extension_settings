@@ -49,12 +49,17 @@ function extension_settings_global_block1() {
  return system_settings_form($form);
 }
 
-/**
- * Form submit logic for the global content clear button.
- */
-function extension_settings_global_block1_clear($form, &$form_state) {
-  variable_del('extension_settings_global_content_1');
-  drupal_set_message('Global content for block 1 has been cleared.');
+function extension_settings_form_extension_settings_global_block1_alter(&$form, &$form_state, $form_id) {
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#submit' => array('extension_settings_global_block1_submit'),
+    '#value' => t('Save Configuration'),
+  );
+  $form['actions']['reset'] = array(
+    '#type' => 'submit',
+    '#value' => t('Clear global content from block 1'),
+    '#submit' => array('extension_settings_global_block1_clear'),
+  );
 }
 
 /**
@@ -68,9 +73,10 @@ function extension_settings_global_block1_submit($form, &$form_state) {
   drupal_set_message('Global content for block 1 has been saved.');
 }
 
-function extension_settings_form_extension_settings_global_block1_alter($form, &$form_state, $form_id) {
-  $form['buttons']['submit']['#submit'][] = 'extension_settings_global_block1_submit';
-  $form['buttons']['submit']['#value'][] = 'extension_settings_global_block1_submit';
-  $form['buttons']['reset']['#value'] = 'Clear global content from block 1';
-  $form['buttons']['reset']['#submit'][] = 'extension_settings_global_block1_clear';
+/**
+ * Form submit logic for the global content clear button.
+ */
+function extension_settings_global_block1_clear($form, &$form_state) {
+  variable_del('extension_settings_global_content_1');
+  drupal_set_message('Global content for block 1 has been cleared.');
 }
