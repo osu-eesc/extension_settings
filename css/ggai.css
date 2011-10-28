@@ -71,6 +71,12 @@ div#ggai-block.ggai-block div.wm_sun ul li.item-5 {
 div#ggai-block.ggai-block div.wm_sun ul li.item-6 {
 	list-style-image: url('../images/gfx_ico_snake.png');
 }
+div#ggai-block.ggai-block div.wm_sun ul li.item-7 {
+	list-style-image: url('../images/gfx_ico_wheat.png');
+}
+div#ggai-block.ggai-block div.wm_sun ul li.item-8 {
+	list-style-image: url('../images/gfx_ico_rain.png');
+}
 
 div#ggai-block.ggai-block div.wm_sun ul li span a {
 	line-height: 32px; 

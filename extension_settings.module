@@ -134,13 +134,21 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             <div class="wm_sun">
               <ul>
                 <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
-                <li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+                <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
                 <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
                 <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
                 <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
                 <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
+              	<div id="ggai_hidden" style="display: none;">
+	                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
+					<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+	                
+				</div>
               </ul>
-              <p><a href="http://extension.oregonstate.edu/node/319">View all »</a></p>
+			<p style="margin: 0.5em 0 1em -30px;">
+              <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;"
+				 onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more'".');})">Show more</a>
+			</p>
             </div>
           </div>';
         $block['subject'] = t('');
