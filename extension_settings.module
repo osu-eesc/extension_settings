@@ -138,10 +138,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
                 <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
                 <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
                 <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
-                <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
               	<div id="ggai_hidden" style="display: none;">
+									<li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
 	                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
-					<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+									<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
 	                
 				</div>
               </ul>
