@@ -147,7 +147,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
               </ul>
 			<p style="margin: 0.5em 0 1em -30px;">
               <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;"
-				 onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more'".');})">Show more</a>
+				 onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less »'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more »'".');})">Show more »</a>
 			</p>
             </div>
           </div>';
