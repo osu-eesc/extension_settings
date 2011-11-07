@@ -307,6 +307,7 @@ function theme_extension_settings_formatter_comma($element) {
  return implode(', ', $items);
 }
 
+
 /**
 * Implementation of hook_form_alter().
 */
