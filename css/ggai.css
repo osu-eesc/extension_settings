@@ -8,7 +8,7 @@ div#ggai-block.ggai-block {
   margin: 4px auto auto -6%; 
 }
 /* Home bg img of boy*/
-.front div#ggai-block.ggai-block div.wm_sun {
+.site-type-0.front div#ggai-block.ggai-block div.wm_sun {
 	background: url('../images/gfx_boy.png') right bottom no-repeat !important;
 }
 
