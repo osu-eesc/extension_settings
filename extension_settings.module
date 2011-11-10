@@ -340,5 +340,8 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       // remove form options on the form block
       unset($form['sitesearch']);
     break;
+    case '_linkit_form':
+      $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <b>OR</b> select Browse Server to upload or select a file.';
+    break;
   }
 }
