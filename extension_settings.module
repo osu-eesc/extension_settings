@@ -97,8 +97,6 @@ function extension_settings_menu() {
     'type' => MENU_LOCAL_TASK,
   );
 
-
-
   return $items;
 }
 
@@ -355,4 +353,43 @@ function theme_extension_settings_formatter_comma($element) {
   $i++;
  }
  return implode(', ', $items);
+}
+
+
+/**
+* Implementation of hook_form_alter().
+*/
+function extension_settings_form_alter(&$form, $form_state, $form_id) {
+  //$output .= dsm($form);
+  switch ($form_id) {
+    // This is our form ID.
+    case 'page_node_form':
+      // remove the Show summary in full view field
+      unset($form['body_field']['teaser_include']);
+      // remove other unneeded fields
+      unset($form['author']);
+      unset($form['revision_information']);
+    break;
+    case 'story_node_form':
+      // remove the Show summary in full view field
+      unset($form['body_field']['teaser_include']);
+      // remove other unneeded fields
+      unset($form['author']);
+      unset($form['revision_information']);
+    break;
+    case 'book_node_form':
+      // remove the Show summary in full view field
+      unset($form['body_field']['teaser_include']);
+      // remove other unneeded fields
+      unset($form['author']);
+      unset($form['revision_information']);
+    break;
+    case 'google_cse_searchbox_form':
+      // remove form options on the form block
+      unset($form['sitesearch']);
+    break;
+    case '_linkit_form':
+      $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <b>OR</b> select Browse Server to upload or select a file.';
+    break;
+  }
 }
