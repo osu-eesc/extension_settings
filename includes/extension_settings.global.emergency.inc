@@ -3,7 +3,7 @@
 /*
  * Global Content form for Extension.
  */
-function extension_settings_global_block1() {
+function extension_settings_global_emergency() {
   $default_values = variable_get('extension_settings_global_content_1', '');
   if ($default_values == '') {
     $default_values['regions']['1'] = '1';
@@ -16,7 +16,7 @@ function extension_settings_global_block1() {
   
   $form['global_content'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Block 1 global content'),
+    '#title' => t('Emergency Information global content'),
     '#collapsible' => FALSE,
     '#collapsed' => FALSE
   );
@@ -51,24 +51,24 @@ function extension_settings_global_block1() {
 /**
  * Form submit logic for the global content clear button.
  */
-function extension_settings_global_block1_clear($form, &$form_state) {
+function extension_settings_global_emergency_clear($form, &$form_state) {
   variable_del('extension_settings_global_content_1');
-  drupal_set_message('Global content for block 1 has been cleared.');
+  drupal_set_message('Global content for Emergency Information has been cleared.');
 }
 
 /**
  * Form validation logic for the global content settings.
  */
-function extension_settings_global_block1_submit($form, &$form_state) {
+function extension_settings_global_emergency_submit($form, &$form_state) {
   $values['regions'] = $form_state['values']['regions'];
   $values['content'] = $form_state['values']['content'];
 
   variable_set('extension_settings_global_content_1', $values);
-  drupal_set_message('Global content for block 1 has been saved.');
+  drupal_set_message('Global content for Emergency Information has been saved.');
 }
 
-function extension_settings_form_extension_settings_global_block1_alter($form, &$form_state) {
-  $form['buttons']['submit']['#submit'][] = 'extension_settings_global_block1_submit';
-  $form['buttons']['reset']['#value'] = 'Clear global content from block 1';
-  $form['buttons']['reset']['#submit'][] = 'extension_settings_global_block1_clear';
+function extension_settings_form_extension_settings_global_emergency_alter($form, &$form_state) {
+  $form['buttons']['submit']['#submit'][] = 'extension_settings_global_emergency_submit';
+  $form['buttons']['reset']['#value'] = 'Clear global content from Emergency Information';
+  $form['buttons']['reset']['#submit'][] = 'extension_settings_global_emergency_clear';
 }

@@ -72,18 +72,18 @@ function extension_settings_menu() {
     'title' => t('Global content'),
     'description' => t('Administer global content accross all extension sites.'),
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('extension_settings_global_block1'),
+    'page arguments' => array('extension_settings_global_emergency'),
     'access arguments' => array('administer extension global content'),
-    'file' => 'includes/extension_settings.global.block1.inc',
+    'file' => 'includes/extension_settings.global.emergency.inc',
     'type' => MENU_LOCAL_TASK,
   );
-  $items['admin/settings/extension/global/block1'] = array(
-    'title' => t('Block 1'),
-    'description' => t('Global content for block 1.'),
+  $items['admin/settings/extension/global/emergency'] = array(
+    'title' => t('Emergency Information'),
+    'description' => t('Global content for Emergency Information.'),
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('extension_settings_global_block1'),
+    'page arguments' => array('extension_settings_global_emergency'),
     'access arguments' => array('administer extension global content'),
-    'file' => 'includes/extension_settings.global.block1.inc',
+    'file' => 'includes/extension_settings.global.emergency.inc',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
   $items['admin/settings/extension/global/block2'] = array(
@@ -96,7 +96,18 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.global.block2.inc',
     'type' => MENU_LOCAL_TASK,
   );
-
+  $items['globalblock1'] = array(
+    'title' => t('Emergency Information'),
+    'page callback' => 'extension_settings_global_block_1_code',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['globalblock2'] = array(
+    'title' => t('Global Content block 2'),
+    'page callback' => 'extension_settings_global_block_2_code',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
   return $items;
 }
 
@@ -117,8 +128,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[6]['info'] = t('Badge - Health and Wellness');
     $blocks[7]['info'] = t('Badge - Small Farms');
     $blocks[8]['info'] = t('OSU Search block');
-    
-    $blocks[9]['info'] = t('Global Content Block 1');
+
+    $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
 		$blocks[11]['info'] = t('Extension Neapolitan Block');
     return $blocks;
@@ -248,15 +259,19 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 
 function extension_settings_globalblock_content($globalblock_id) {
   $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
-  $globaldata = file_get_contents($fileurl);
+  $globaldata = file_get_contents($fileurl);  
   if ($globaldata) {
     $regionslength = strpos($globaldata, '</regions>') - 47;
     $globalregions = explode(',', substr($globaldata, 47, $regionslength));
     $site_region = variable_get('extension_settings_region', '');
     if (in_array($site_region, $globalregions)) {
       $globalcontentstart = strpos($globaldata, '</regions>') + 31;
-      $globalblock_content = substr($globaldata, $globalcontentstart, -22);
-    } 
+      if($globalblock_id == '1') {
+        $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . substr($globaldata, $globalcontentstart, -22) . '</div></div>';
+      } else {
+        $globalblock_content = substr($globaldata, $globalcontentstart, -22);
+      }
+    }
   } else {
     $globalblock_content = '';
   }
@@ -283,7 +298,7 @@ function extension_settings_global_block_1_code() {
     $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
     $xml_data['regions'] = implode(',', $global_content['regions']);
     $xml_data['content'] = $global_content['content'];
-    
+
     print '<?xml version="1.0" encoding="UTF-8"?>';
     print '<regions>' . $xml_data['regions'] . '</regions>';
     print '<globalblock_content>' . $xml_data['content'] . '</globalblock_content>';

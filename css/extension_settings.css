@@ -1,4 +1,4 @@
-#extension-settings-global-block1 input[type=checkbox],
+#extension-settings-global-emergency input[type=checkbox],
 #extension-settings-global-block2 input[type=checkbox],
 #edit-extension-settings-region-1-wrapper input[type=radio],
 #edit-extension-settings-region-2-wrapper input[type=radio],
@@ -118,14 +118,14 @@
 }
 
 #oregon-region .form-radios,
-#extension-settings-global-block1 .form-checkboxes,
+#extension-settings-global-emergency .form-checkboxes,
 #extension-settings-global-block2 .form-checkboxes {
   position: relative;
   height: 400px;
   width: 510px;
 }
 
-#extension-settings-global-block1 .checkbox-label,
+#extension-settings-global-emergency .checkbox-label,
 #extension-settings-global-block2 .checkbox-label,
 #extension-settings-admin-settings .radio-label {
   text-indent: -9999em;
@@ -171,4 +171,57 @@
   position: absolute;
   top: 161px;
   left: 286px;
+}
+
+/*******Emergency Information Block*******/
+.emergency-wrapper {
+  position: relative;
+  border: 1px solid #000;
+  width: 600px;
+  min-height: 52px;
+  margin-left: 10px;
+  background-color: #ffa200;
+}
+
+.site-type-0 .emergency-wrapper {
+  width: 550px;
+}
+
+.emergency-info-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  margin-top: -16px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #ffa200;
+}
+
+.emergency-info {
+  margin: 7px 7px 7px 158px;
+  word-wrap: break-word;
+  color: #000;
+}
+
+.emergency-info p {
+  margin: 0 0 5px 0;
+}
+
+.emergency-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+  left: 114px;
+  background-image: url('../images/emergency_arrow.png');
+  width: 36px;
+  height: 52px;
+}
+
+.emergency-wrapper-black {
+  position: absolute;
+  background-image: url('../images/emergency_wrapper_black.png');
+  width: 125px;
+  height: 100%;
+  float: left;
 }
