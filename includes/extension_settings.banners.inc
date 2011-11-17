@@ -21,60 +21,63 @@ function extension_settings_banners() {
     '#collapsed' => FALSE
   );
   $form['1'] = array();
-  $form['1']['display'] = array(
+  $form['1']['display1'] = array(
     '#type' => 'checkbox',
     '#title' => t(''),
     '#default_value' => $default_values['1']['display'],
     '#attributes' => array(
     ),
   );
-  $form['1']['banner'] = array(
-    '#value' => '<div><img src="/' . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_snake.png" /></div>',
+  $form['1']['banner1'] = array(
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_snake.png" /></div>',
   );
-  $form['1']['weight'] = array(
+  $form['1']['weight1'] = array(
     '#type' => 'weight',
     '#title' => t('Weight'),
     '#default_value' => $default_values['1']['weight'],
     '#description' => t(''),
     '#attributes' => array(
+      'class' => 'weight',
     ),
   );
   $form['2'] = array();
-  $form['2']['display'] = array(
+  $form['2']['display2'] = array(
     '#type' => 'checkbox',
     '#title' => t(''),
     '#default_value' => $default_values['2']['display'],
     '#attributes' => array(
     ),
   );
-  $form['2']['banner'] = array(
-    '#value' => '<div><img src="/' . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_spade.png" /></div>',
+  $form['2']['banner2'] = array(
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_spade.png" /></div>',
   );
-  $form['2']['weight'] = array(
+  $form['2']['weight2'] = array(
     '#type' => 'weight',
     '#title' => t('Weight'),
     '#default_value' => $default_values['2']['weight'],
     '#description' => t(''),
     '#attributes' => array(
+      'class' => 'weight',
     ),
   );
   $form['3'] = array();
-  $form['3']['display'] = array(
+  $form['3']['display3'] = array(
     '#type' => 'checkbox',
     '#title' => t(''),
     '#default_value' => $default_values['3']['display'],
     '#attributes' => array(
     ),
   );
-  $form['3']['banner'] = array(
-    '#value' => '<div><img src="/' . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_pot.png" /></div>',
+  $form['3']['banner3'] = array(
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_pot.png" /></div>',
   );
-  $form['3']['weight'] = array(
+  $form['3']['weight3'] = array(
     '#type' => 'weight',
     '#title' => t('Weight'),
     '#default_value' => $default_values['3']['weight'],
     '#description' => t(''),
     '#attributes' => array(
+      'class' => 'weight',
     ),
   );
   $form['submit'] = array(
@@ -88,13 +91,12 @@ function extension_settings_banners() {
  * Form submit logic for the global content clear button.
  */
 function extension_settings_banners_submit($form, &$form_state) {
-  $values['1']['display'] = $form_state['values']['1']['display'];
-  $values['1']['weight'] = $form_state['values']['1']['weight'];
-  $values['2']['display'] = $form_state['values']['2']['display'];
-  $values['2']['weight'] = $form_state['values']['2']['weight'];
-  $values['3']['display'] = $form_state['values']['3']['display'];
-  $values['3']['weight'] = $form_state['values']['3']['weight'];
-
+  $values['1']['display'] = $form_state['values']['display1'];
+  $values['1']['weight'] = $form_state['values']['weight1'];
+  $values['2']['display'] = $form_state['values']['display2'];
+  $values['2']['weight'] = $form_state['values']['weight2'];
+  $values['3']['display'] = $form_state['values']['display3'];
+  $values['3']['weight'] = $form_state['values']['weight3'];
   variable_set('extension_settings_banners', $values);
   drupal_set_message('Banner settings have been saved.');
 }
@@ -103,14 +105,14 @@ function theme_extension_settings_banners($form)  {
   $rows = array();
   foreach (element_children($form) as $key) {
     if (is_numeric($key)) {
-      $display = drupal_render($form[$key]['display']);
-      $row[] = array('data' => $display, 'class' => 'banner-display');
-      $banner = drupal_render($form[$key]['banner']);
-      $row[] = array('data' => $banner, 'class' => 'banner-image');
-      $weight = drupal_render($form[$key]['weight']);
-      $row[] = array('data' => $weight, 'class' => 'banner-weight');
-
-      $rows[] = array('data' => $row, 'class' => 'draggable');
+      $wt = $form[$key]['weight' . $key]['#value'];
+      $display = drupal_render($form[$key]['display' . $key]);
+      $row[] = array('data' => $display);
+      $banner = drupal_render($form[$key]['banner' . $key]);
+      $row[] = array('data' => $banner);
+      $weight = drupal_render($form[$key]['weight' . $key]);
+      $row[] = array('data' => $weight);
+      $rows[$wt] = array('data' => $row, 'class' => 'draggable');
       unset($row);
     }
   }
@@ -119,11 +121,11 @@ function theme_extension_settings_banners($form)  {
   $header[] = array('data' => t('Display'), 'class' => 'banner-display');
   $header[] = array('data' => t('Banner'), 'class' => 'banner-banner');
   $header[] = array('data' => t('Weight'), 'class' => 'banner-weight');
-
-  $output =   theme('table', $header, $rows, array('id' => 'extension-banners-table'));
+  ksort($rows);
+  $output =   theme('table', $header, $rows, array('id' => 'extension-banners-table'));  
   $output .=  drupal_render($form);
 
-  drupal_add_tabledrag('extension-banners-table', 'order', 'sibling', 'banner-weight');
+  drupal_add_tabledrag('extension-banners-table', 'order', 'sibling', 'weight');
 
   return $output;
 }

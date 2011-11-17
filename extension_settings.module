@@ -42,6 +42,7 @@ function extension_settings_help($path, $arg) {
 function extension_settings_perm() {
   $extension_permissions[] = 'administer extension settings';
   $extension_permissions[] = 'administer extension global content';
+  $extension_permissions[] = 'administer extension banners';
   return $extension_permissions;
 }
 
@@ -65,8 +66,19 @@ function extension_settings_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('extension_settings_admin_settings'),
     'access arguments' => array('administer extension settings'),
+    'weight' => 1,
     'file' => 'includes/extension_settings.admin.inc',
     'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/settings/extension/banners'] = array(
+    'title' => t('Banners'),
+    'description' => t('Administer Extension banners.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_banners'),
+    'access arguments' => array('administer extension banners'),
+    'weight' => 2,
+    'file' => 'includes/extension_settings.banners.inc',
+    'type' => MENU_LOCAL_TASK,
   );
   $items['admin/settings/extension/global'] = array(
     'title' => t('Global content'),
@@ -127,11 +139,12 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[5]['info'] = t('Badge - Family and Youth');
     $blocks[6]['info'] = t('Badge - Health and Wellness');
     $blocks[7]['info'] = t('Badge - Small Farms');
-    $blocks[8]['info'] = t('OSU Search block');
-
+    $blocks[8]['info'] = t('Calendar Block'); // ############################################################################################
     $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
 		$blocks[11]['info'] = t('Extension Neapolitan Block');
+		$blocks[12]['info'] = t('Extension Banners Block');
+		
     return $blocks;
   } else if ($op == 'view') {
     $block = array();
@@ -250,9 +263,25 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				</div>
 				<div style="clear: both; height: 10px; width: 1px;"></div>';
 	      $block['subject'] = t('');
-	      $block['content'] = t($neapolitan_output);
-				
+	      $block['content'] = $neapolitan_output;
 	      return $block;
+	    case 12:
+	      $banner_content = '';
+	      $banners = variable_get('extension_settings_banners', '');
+	      if ($banners['1']['display'] == 1) {
+	        $banner[$banners['1']['weight']] = '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_snake.png" /></div>';
+	      }
+	      if ($banners['2']['display'] == 1) {
+	        $banner[$banners['2']['weight']] = '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_spade.png" /></div>';
+	      }
+	      if ($banners['3']['display'] == 1) {
+	        $banner[$banners['3']['weight']] = '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_pot.png" /></div>';
+	      }
+	      ksort($banner);
+	      $banner_content = implode('', $banner);	      
+        $block['subject'] = t('');
+        $block['content'] = $banner_content;
+        return $block;
     }
   }
 }
@@ -333,11 +362,17 @@ function extension_settings_global_block_2_code() {
  */
 function extension_settings_theme() {
  return array(
-  'extension_settings_formatter_comma' => array(
-   'arguments' => array(
-    'element' => NULL,
+   'extension_settings_formatter_comma' => array(
+     'arguments' => array(
+       'element' => NULL,
+     ),
    ),
-  ),
+   'extension_settings_banners' => array(
+     'arguments' => array(
+       'form' => NULL,
+      ),
+     'file' => 'includes/extension_settings.banners.inc',
+   ),
  );
 }
 
@@ -346,11 +381,11 @@ function extension_settings_theme() {
  */
 function extension_settings_field_formatter_info() {
  return array(
-  'comma' => array(
-   'label' => t('Comma separated'), 
-   'multiple values' => CONTENT_HANDLE_MODULE, 
-   'field types' => array('text'),
-  ),
+   'comma' => array(
+    'label' => t('Comma separated'), 
+    'multiple values' => CONTENT_HANDLE_MODULE, 
+    'field types' => array('text'),
+   ),
  ); 
 }
 
@@ -404,6 +439,7 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       unset($form['sitesearch']);
     break;
     case '_linkit_form':
+      $form['link']['link']['#field_suffix'] = NULL;
       $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <b>OR</b> select Browse Server to upload or select a file.';
     break;
   }
