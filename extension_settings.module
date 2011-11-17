@@ -247,11 +247,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				<img src="http://extension.oregonstate.edu/_includes/images/OAP_latest_thumb.jpg" width="81" height="106"/>
 				</a>
 				</div>
-				<div style="width: 130px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Oregon&#39;s Agricultural Progress</b>
-				<p style="font-size: 11px;">
+				<div style="width: 130px; margin-left: 0; line-height: 16px; font-size: 12px;">
+				<b>Oregon&#39;s Agricultural Progress</b><br/>
+				<span style="font-size: 11px;">
 				The research magazine for Oregon State University Agricultural Experiment Station
-				</p>
+				</span>
 				</div>
 				</div>
 				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 30%; float: left;">
@@ -263,10 +263,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				</a>
 				</div>
 				<div style="width: 140px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Ask an Expert</b>
-				<p style="font-size: 11px;">
+				<b>Ask an Expert</b><br/>
+				<span style="font-size: 11px;">
 				Addressing real-life questions with research-based answers... Ask an Expert at Oregon State University.
-				</p>
+				</span>
 				</div>
 				</div>
 				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 30%; float: left;">
@@ -277,9 +277,9 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				</div>
 				<div style="width: 130px; margin: auto; line-height: 16px; font-size: 12px;">
 				<b>Publications</b>
-				<p style="font-size: 11px;">
+				<span style="font-size: 11px;">
 				OSU Extension&#39;s Publications and Multimedia Catalog.
-				</p>
+				</span>
 				</div>
 				</div>
 				<div style="clear: both; height: 10px; width: 1px;"></div>';
