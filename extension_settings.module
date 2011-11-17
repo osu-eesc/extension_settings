@@ -275,7 +275,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				<img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102"/>
 				</a>
 				</div>
-				<div style="width: 130px; margin: auto; line-height: 16px; font-size: 12px;">
+				<div style="width: 150px; margin-left: 10px; line-height: 16px; font-size: 12px;">
 				<b>Publications</b><br/>
 				<span style="font-size: 11px;">
 				OSU Extension&#39;s Publications and Multimedia Catalog.
