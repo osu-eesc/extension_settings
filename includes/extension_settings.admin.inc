@@ -53,6 +53,67 @@ function extension_settings_admin_settings() {
     '#required' => TRUE
   );
   
+  $form['configuration_settings']['calendar'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Calendar Settings'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE
+  );
+
+  $form['configuration_settings']['calendar']['extension_settings_calendar_shortname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Short name'),
+    '#description' => t('Enter the short name of the site for the calendar to use.'),
+    '#default_value' => variable_get('extension_settings_calendar_shortname', ''),
+  );
+  
+  $form['configuration_settings']['calendar']['extension_settings_calendar_numdisplay'] = array(
+    '#type' => 'select',
+    '#title' => t('Events to display'),
+    '#description' => t('Select the number of events to display in the calendar.'),
+    '#options' => array(
+      '1' => t('1'),
+      '2' => t('2'),
+      '3' => t('3'),
+      '4' => t('4'),
+      '5' => t('5'),
+      '6' => t('6'),
+      '7' => t('7'),
+      '8' => t('8'),
+      '9' => t('9'),
+      '10' => t('10'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar_numdisplay', '5'),
+  );
+  
+  $form['configuration_settings']['calendar']['extension_settings_calendar_teaser'] = array(
+    '#type' => 'select',
+    '#title' => t('Teaser Length'),
+    '#description' => t('Select the number of words to display in the teaser.'),
+    '#options' => array(
+      '5' => t('5'),
+      '10' => t('10'),
+      '15' => t('15'),
+      '25' => t('20'),
+      '25' => t('25'),
+      '30' => t('30'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar_teaser', '15'),
+  );
+  
+  $form['configuration_settings']['calendar']['extension_settings_calendar_lookahead'] = array(
+    '#type' => 'select',
+    '#title' => t('Look ahead days'),
+    '#description' => t('Select the number of days for the calendar to look ahead.'),
+    '#options' => array(
+      '15' => t('15'),
+      '30' => t('30'),
+      '60' => t('60'),
+      '90' => t('90'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar_lookahead', '90'),
+  );
+  
   $form['configuration_settings']['extension_settings_region'] = array(
     '#type' => 'radios',
     '#title' => t('Current Site Region'),
