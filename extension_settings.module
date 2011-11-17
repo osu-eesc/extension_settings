@@ -151,28 +151,43 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     switch ($delta) {
       case 0:
         $ggai_output = '
-          <div id="ggai-block" class="ggai-block">
-            <div class="ggai-block-header"></div>
-            <div class="wm_sun">
-              <ul>
-                <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
-                <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
-                <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
-                <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
-                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
-              	<div id="ggai_hidden" style="display: none;">
-									<li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
-	                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
-									<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
-	                
-				</div>
-              </ul>
-			<p style="margin: 0.5em 0 1em -30px;">
-              <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;"
-				 onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less »'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more »'".');})">Show more »</a>
-			</p>
-            </div>
-          </div>';
+                    <div id="ggai-block" class="ggai-block">
+					            <div class="ggai-block-header"></div>
+					            <div class="wm_sun">
+					              <ul>
+					                <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
+					                <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
+					                <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
+					                <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
+					                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
+					              	<ul id="ggai_hidden" style="list-style-type: none; margin-left: 0px; display: none;">
+														<li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
+						                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
+														<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+
+									</ul>
+					              </ul>
+								<p style="margin: 0.5em 0 1em -30px;">
+					              <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;"
+									 onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'40px'."'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'30px'."'".');})">Show more »</a>
+								</p>
+					            </div>
+					          </div>
+					<!--[if lte IE 8]>
+					<style type="text/css">
+					#ggai_hidden_link 
+					{
+						margin-left: 30px;
+					}
+					#ggai_hidden 
+					{
+						margin-top: 6px;
+					}
+					#ggai-block {
+						padding-bottom: 0px;
+					}
+					</style>
+					<![endif]-->';
         $block['subject'] = t('');
         $block['content'] = t($ggai_output);
         return $block;
@@ -225,40 +240,46 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = extension_settings_globalblock_content('2');
         return $block;
 			case 11:
-				$neapolitan_output = '<div style="width: 520px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 210px; width: 30%; float: left;">
+				$neapolitan_output = '<div style="width: 660px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
+				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 30%; float: left;">
 				<div style="height: 110px;">
-				<a style="display: block; width: 106px; margin: auto;" href="http://oregonprogress.oregonstate.edu/" title="Oregon&#39;s Agricultural Progress">
+				<a style="display: block; width: 106px; margin-left: 0;" href="http://oregonprogress.oregonstate.edu/" title="Oregon&#39;s Agricultural Progress">
 				<img src="http://extension.oregonstate.edu/_includes/images/OAP_latest_thumb.jpg" width="81" height="106"/>
 				</a>
 				</div>
 				<div style="width: 130px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Oregon&#39;s Agricultural Progress</b><br/>
+				<b>Oregon&#39;s Agricultural Progress</b>
+				<p style="font-size: 11px;">
 				The research magazine for Oregon State University Agricultural Experiment Station
+				</p>
 				</div>
 				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 210px; width: 30%; float: left;">
+				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 30%; float: left;">
 				<div style="height: 98px; margin-top: 12px;">
 				<a style="display: block; width: 132px; margin: auto;" href="';
 				$neapolitan_output .= (module_exists('extension_ask_expert') == TRUE)? 'ask-an-expert' : 'http://extension.oregonstate.edu/extension-ask-an-expert';
 				$neapolitan_output .= '" title="Oregon&#39;s Agricultural Progress">
-				<img src="/sites/default/modules/extension_ask_expert/theme/ask-an-expert.png" width="132" height="76"/>
+				<img src="/sites/default/modules/extension_ask_expert/theme/ask-an-expert.png" width="132" height="89"/>
 				</a>
 				</div>
 				<div style="width: 140px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Ask an Expert</b><br/>
+				<b>Ask an Expert</b>
+				<p style="font-size: 11px;">
 				Addressing real-life questions with research-based answers... Ask an Expert at Oregon State University.
+				</p>
 				</div>
 				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; height: 210px; width: 30%; float: left;">
+				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 30%; float: left;">
 				<div style="height: 110px;">
 				<a style="display: block; width: 118px; margin: auto;" href="http://extension.oregonstate.edu/catalog/" title="Publications">
 				<img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102"/>
 				</a>
 				</div>
 				<div style="width: 130px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Publications</b><br/>
+				<b>Publications</b>
+				<p style="font-size: 11px;">
 				OSU Extension&#39;s Publications and Multimedia Catalog.
+				</p>
 				</div>
 				</div>
 				<div style="clear: both; height: 10px; width: 1px;"></div>';
