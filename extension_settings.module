@@ -241,13 +241,13 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         return $block;
 			case 11:
 				$neapolitan_output = '<div style="width: 580px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 190px; float: left;">
+				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 170px; float: left;">
 				<div style="height: 110px;">
 				<a style="display: block; width: 106px; margin-left: 0;" href="http://oregonprogress.oregonstate.edu/" title="Oregon&#39;s Agricultural Progress">
 				<img src="http://extension.oregonstate.edu/_includes/images/OAP_latest_thumb.jpg" width="81" height="106"/>
 				</a>
 				</div>
-				<div style="width: 130px; margin-left: 0; line-height: 16px; font-size: 12px;">
+				<div style="width: 150px; margin-left: 0; line-height: 16px; font-size: 12px;">
 				<b>Oregon&#39;s Agricultural Progress</b><br/>
 				<span style="font-size: 11px;">
 				The research magazine for Oregon State University Agricultural Experiment Station
@@ -262,21 +262,21 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				<img src="/sites/default/modules/extension_ask_expert/theme/ask-an-expert.png" width="132" height="89"/>
 				</a>
 				</div>
-				<div style="width: 140px; margin: auto; line-height: 16px; font-size: 12px;">
+				<div style="width: 150px; margin: auto; line-height: 16px; font-size: 12px;">
 				<b>Ask an Expert</b><br/>
 				<span style="font-size: 11px;">
 				Addressing real-life questions with research-based answers... Ask an Expert at Oregon State University.
 				</span>
 				</div>
 				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 190px; float: left;">
+				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 150px; float: left;">
 				<div style="height: 110px;">
 				<a style="display: block; width: 118px; margin: auto;" href="http://extension.oregonstate.edu/catalog/" title="Publications">
 				<img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102"/>
 				</a>
 				</div>
 				<div style="width: 130px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Publications</b>
+				<b>Publications</b><br/>
 				<span style="font-size: 11px;">
 				OSU Extension&#39;s Publications and Multimedia Catalog.
 				</span>
