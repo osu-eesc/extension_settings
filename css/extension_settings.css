@@ -225,3 +225,40 @@
   height: 100%;
   float: left;
 }
+
+/*******Calendar Block*******/
+#block-extension_settings-8 .teaser {
+  border: none;
+  padding: 0 !important;
+}
+
+#block-extension_settings-8 .title {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#block-extension_settings-8 .rss {
+  float: right;
+  margin-top: -25px;
+}
+
+#block-extension_settings-8 .event {
+  margin-top: 10px;
+}
+
+#block-extension_settings-8 .description {
+  margin-left: 10px;
+}
+
+#block-extension_settings-8 .event-title a {
+  font-weight: bold !important;
+}
+
+#block-extension_settings-8 .date {
+  color: #606060;
+  font-weight: bold;
+}
+
+#block-extension_settings-8 .view-more {
+  float: right;
+}

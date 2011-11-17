@@ -139,7 +139,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[5]['info'] = t('Badge - Family and Youth');
     $blocks[6]['info'] = t('Badge - Health and Wellness');
     $blocks[7]['info'] = t('Badge - Small Farms');
-    $blocks[8]['info'] = t('Calendar Block');
+    $blocks[8]['info'] = t('Calendar Block (CWS Feed)');
     $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
 		$blocks[11]['info'] = t('Extension Neapolitan Block');
@@ -294,18 +294,18 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         
           $calendar_output .= '<div class="event"><div class="date">';
           $calendar_output .= $event['date'];
-          $calendar_output .= '</div><div class="description"><div class="title"><a href="';
+          $calendar_output .= '</div><div class="description"><div class="event-title"><a href="';
           $calendar_output .= $event['link'];
           $calendar_output .= '">';
           $calendar_output .= $event['title'];
-          $calendar_output .= '</a><br /></div><div class="teaser">';
+          $calendar_output .= '</a></div><div class="teaser">';
           $calendar_output .= $event['body'];
           $calendar_output .= '</div></div></div>';
         }
         if ($flag != 0) {
-          $calendar_output .= '</div><a href="http://calendar.oregonstate.edu/advanced/today+60/';
+          $calendar_output .= '</div><div class="view-more"><a href="http://calendar.oregonstate.edu/advanced/today+60/';
           $calendar_output .= $shortname;
-          $calendar_output .= '">View full calendar</a>';
+          $calendar_output .= '">view more events &raquo;</a></div>';
         }
         $block['subject'] = t('Upcoming Events');
         $block['content'] = $calendar_output;
