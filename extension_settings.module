@@ -240,8 +240,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = extension_settings_globalblock_content('2');
         return $block;
 			case 11:
-				$neapolitan_output = '<div style="width: 660px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 220px; float: left;">
+				$neapolitan_output = '<div style="width: 580px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
+				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 190px; float: left;">
 				<div style="height: 110px;">
 				<a style="display: block; width: 106px; margin-left: 0;" href="http://oregonprogress.oregonstate.edu/" title="Oregon&#39;s Agricultural Progress">
 				<img src="http://extension.oregonstate.edu/_includes/images/OAP_latest_thumb.jpg" width="81" height="106"/>
@@ -254,7 +254,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				</span>
 				</div>
 				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 220px; float: left;">
+				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 190px; float: left;">
 				<div style="height: 98px; margin-top: 12px;">
 				<a style="display: block; width: 132px; margin: auto;" href="';
 				$neapolitan_output .= (module_exists('extension_ask_expert') == TRUE)? 'ask-an-expert' : 'http://extension.oregonstate.edu/extension-ask-an-expert';
@@ -269,7 +269,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 				</span>
 				</div>
 				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 220%; float: left;">
+				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 190px; float: left;">
 				<div style="height: 110px;">
 				<a style="display: block; width: 118px; margin: auto;" href="http://extension.oregonstate.edu/catalog/" title="Publications">
 				<img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102"/>
