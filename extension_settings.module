@@ -299,6 +299,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $calendar_output .= $shortname;
           $calendar_output .= '">view more events &raquo;</a></div>';
         }
+        if ($flag == 0) $calendar_output = '';
         $block['subject'] = t('Upcoming Events');
         $block['content'] = $calendar_output;
         return $block;
