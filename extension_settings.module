@@ -1,12 +1,10 @@
 <?php
-// $Id: extension_settings.module 
+// $Id: extension_settings.module
 /**
  * Extension Settings
  * Helper module for EESC managed Drupal sites.
  * This module provides configuration settings.
  */
- 
- 
 /**
  * Implementation of hook_init().
  */
@@ -14,7 +12,6 @@ function extension_settings_init() {
   drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/ggai.css');
   drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/extension_settings.css');
 }
-
 /**
  * Implementation of hook_help()
  * Provide online user help.
@@ -35,7 +32,6 @@ function extension_settings_help($path, $arg) {
       return '';
   }
 }
-
 /**
  * Implementation of hook_perm().
  */
@@ -45,7 +41,6 @@ function extension_settings_perm() {
   $extension_permissions[] = 'administer extension banners';
   return $extension_permissions;
 }
-
 /**
  * Implementation of hook_menu().
  */
@@ -86,6 +81,7 @@ function extension_settings_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('extension_settings_global_emergency'),
     'access arguments' => array('administer extension global content'),
+    'weight' => 3,
     'file' => 'includes/extension_settings.global.emergency.inc',
     'type' => MENU_LOCAL_TASK,
   );
@@ -122,13 +118,11 @@ function extension_settings_menu() {
   );
   return $items;
 }
-
 /**
 * Implementation of hook_block().
 * @param string $op one of "list", "view", "save" and "configure"
 * @param integer $delta code to identify the block
 */
-
 function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
   if ($op == 'list') {
     $blocks[0]['info'] = t('Life: Get good at it sidebar links');
@@ -144,7 +138,6 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[10]['info'] = t('Global Content Block 2');
 		$blocks[11]['info'] = t('Extension Neapolitan Block');
 		$blocks[12]['info'] = t('Extension Banners Block');
-		
     return $blocks;
   } else if ($op == 'view') {
     $block = array();
@@ -164,7 +157,6 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 														<li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
 						                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
 														<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
-
 									</ul>
 					              </ul>
 								<p style="margin: 0.5em 0 1em -30px;">
@@ -175,11 +167,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 					          </div>
 					<!--[if lte IE 8]>
 					<style type="text/css">
-					#ggai_hidden_link 
+					#ggai_hidden_link
 					{
 						margin-left: 30px;
 					}
-					#ggai_hidden 
+					#ggai_hidden
 					{
 						margin-top: 6px;
 					}
@@ -291,7 +283,6 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['title'] = $event_title;
           $event['link'] = $event_link;
           $event['body'] = implode(' ', $event_body);
-        
           $calendar_output .= '<div class="event"><div class="date">';
           $calendar_output .= $event['date'];
           $calendar_output .= '</div><div class="description"><div class="event-title"><a href="';
@@ -367,28 +358,40 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
 	      return $block;
 	    case 12:
 	      $banner_content = '';
-	      $banners = variable_get('extension_settings_banners', '');
+	      $empty_banners = array(
+	        '1' => array(
+	          'display' => 0,
+	        ),
+	        '2' => array(
+	          'display' => 0,
+	        ),
+	        '3' => array(
+	          'display' => 0,
+	        ),
+	      );
+	      $banners = variable_get('extension_settings_banners', $empty_banners);
 	      if ($banners['1']['display'] == 1) {
-	        $banner[$banners['1']['weight']] = '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_snake.png" /></div>';
+	        $banner[$banners['1']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/ten-tips"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/ten-tips-tough-times.png" alt="Ten tips for tough times" /></a></div>';
 	      }
 	      if ($banners['2']['display'] == 1) {
-	        $banner[$banners['2']['weight']] = '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_spade.png" /></div>';
+	        $banner[$banners['2']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/emergency/natural-disasters"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/happen-to-you.png" alt="It could happen to you" /></a></div>';
 	      }
 	      if ($banners['3']['display'] == 1) {
-	        $banner[$banners['3']['weight']] = '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_pot.png" /></div>';
+	        $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="http://juniper.oregonstate.edu/tough-times/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" alt="Tough times in the woods" /></a></div>';
 	      }
 	      ksort($banner);
-	      $banner_content = implode('', $banner);	      
+	      if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1) {
+	        $banner_content = '<div class="emergency-banners-wrapper">' . implode('', $banner) . '</div>';
+        }
         $block['subject'] = t('');
         $block['content'] = $banner_content;
         return $block;
     }
   }
 }
-
 function extension_settings_globalblock_content($globalblock_id) {
   $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
-  $globaldata = file_get_contents($fileurl);  
+  $globaldata = file_get_contents($fileurl);
   if ($globaldata) {
     $regionslength = strpos($globaldata, '</regions>') - 47;
     $globalregions = explode(',', substr($globaldata, 47, $regionslength));
@@ -406,7 +409,6 @@ function extension_settings_globalblock_content($globalblock_id) {
   }
   return $globalblock_content;
 }
-
 /**
  * function to remove all given values from an array
 */
@@ -418,7 +420,6 @@ function extension_settings_remove_item_by_value($array, $val = '', $preserve_ke
   }
   return ($preserve_keys === true) ? $array : array_values($array);
 }
-
 function extension_settings_global_block_1_code() {
   $global_content = variable_get('extension_settings_global_content_1', '');
   if ($global_content == '') {
@@ -427,15 +428,12 @@ function extension_settings_global_block_1_code() {
     $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
     $xml_data['regions'] = implode(',', $global_content['regions']);
     $xml_data['content'] = $global_content['content'];
-
     print '<?xml version="1.0" encoding="UTF-8"?>';
     print '<regions>' . $xml_data['regions'] . '</regions>';
     print '<globalblock_content>' . $xml_data['content'] . '</globalblock_content>';
-    
     return NULL;
   }
 }
-
 function extension_settings_global_block_2_code() {
   $global_content = variable_get('extension_settings_global_content_2', '');
   if ($global_content == '') {
@@ -444,19 +442,15 @@ function extension_settings_global_block_2_code() {
     $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
     $xml_data['regions'] = implode(',', $global_content['regions']);
     $xml_data['content'] = $global_content['content'];
-    
     print '<?xml version="1.0" encoding="UTF-8"?>';
     print '<regions>' . $xml_data['regions'] . '</regions>';
     print '<globalblock_content>' . $xml_data['content'] . '</globalblock_content>';
-    
     return NULL;
   }
 }
-
 /**
  * Adds a comma seperated list for multivalue text fields
 */
-
 /**
  * Implementation of hook_theme().
  */
@@ -475,20 +469,18 @@ function extension_settings_theme() {
    ),
  );
 }
-
 /**
  * Implementation of hook_field_formatter_info().
  */
 function extension_settings_field_formatter_info() {
  return array(
    'comma' => array(
-    'label' => t('Comma separated'), 
-    'multiple values' => CONTENT_HANDLE_MODULE, 
+    'label' => t('Comma separated'),
+    'multiple values' => CONTENT_HANDLE_MODULE,
     'field types' => array('text'),
    ),
- ); 
+ );
 }
-
 /**
  * Theme function for Comma separated
  */
@@ -504,13 +496,10 @@ function theme_extension_settings_formatter_comma($element) {
  }
  return implode(', ', $items);
 }
-
-
 /**
 * Implementation of hook_form_alter().
 */
 function extension_settings_form_alter(&$form, $form_state, $form_id) {
-  //$output .= dsm($form);
   switch ($form_id) {
     // This is our form ID.
     case 'page_node_form':

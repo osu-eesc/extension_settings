@@ -226,6 +226,15 @@
   float: left;
 }
 
+/*******Banners Block*******/
+#block-extension_settings-12 .emergency-banner {
+  margin-bottom: 15px;
+}
+
+#block-extension_settings-12 .emergency-banners-wrapper {
+  margin-top: 10px;
+}
+
 /*******Calendar Block*******/
 #block-extension_settings-8 .teaser {
   border: none;

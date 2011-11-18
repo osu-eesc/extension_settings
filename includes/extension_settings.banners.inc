@@ -9,9 +9,9 @@ function extension_settings_banners() {
     $default_values['1']['display'] = 0;
     $default_values['1']['weight'] = 0;
     $default_values['2']['display'] = 0;
-    $default_values['2']['weight'] = 0;
+    $default_values['2']['weight'] = 1;
     $default_values['3']['display'] = 0;
-    $default_values['3']['weight'] = 0;
+    $default_values['3']['weight'] = 2;
   }
 
   $form = array(
@@ -29,7 +29,7 @@ function extension_settings_banners() {
     ),
   );
   $form['1']['banner1'] = array(
-    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_snake.png" /></div>',
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/ten-tips-tough-times.png" /></div>',
   );
   $form['1']['weight1'] = array(
     '#type' => 'weight',
@@ -49,7 +49,7 @@ function extension_settings_banners() {
     ),
   );
   $form['2']['banner2'] = array(
-    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_spade.png" /></div>',
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/happen-to-you.png" /></div>',
   );
   $form['2']['weight2'] = array(
     '#type' => 'weight',
@@ -69,7 +69,7 @@ function extension_settings_banners() {
     ),
   );
   $form['3']['banner3'] = array(
-    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/gfx_ico_pot.png" /></div>',
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" /></div>',
   );
   $form['3']['weight3'] = array(
     '#type' => 'weight',
