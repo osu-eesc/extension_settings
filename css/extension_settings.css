@@ -252,6 +252,11 @@
 }
 
 /*******Calendar Block*******/
+#block-extension_settings-8 {
+  border-top: 1px dotted #999;
+  padding-top: 15px;
+}
+
 #block-extension_settings-8 .teaser {
   border: none;
   padding: 0 !important;
