@@ -301,6 +301,19 @@
 
 #extension-calendar-lightbox .column-left {
   float: left;
-  width: 175px;
+  width: 150px;
   font-weight: bold;
+}
+
+#extension-calendar-lightbox .table {
+  line-height: 1.5em;
+  margin: 20px 0 20px 10px;
+}
+
+#extension-calendar-lightbox #event_view_description {
+  margin-top: 5px;
+}
+
+#extension-calendar-lightbox ul {
+  margin-top: 5px;
 }
