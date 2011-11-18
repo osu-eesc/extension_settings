@@ -80,6 +80,9 @@ function extension_settings_banners() {
       'class' => 'weight',
     ),
   );
+  $form['help_text'] = array(
+    '#value' =>'<div class="help-text">' . t('Select which banners will display on the site as well as the order in which they will display.') . '</div>'
+  );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',

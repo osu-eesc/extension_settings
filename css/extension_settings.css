@@ -235,6 +235,22 @@
   margin-top: 10px;
 }
 
+/*******Banners Block Configuration Page*******/
+#extension-banners-table th.banner-display {
+  width: 75px;
+}
+
+#extension-banners-table .tabledrag-handle,
+#extension-banners-table #edit-display1-wrapper,
+#extension-banners-table #edit-display2-wrapper,
+#extension-banners-table #edit-display3-wrapper {
+  margin-top: 15px;
+}
+
+#extension-settings-banners .help-text {
+  margin-bottom: 10px;
+}
+
 /*******Calendar Block*******/
 #block-extension_settings-8 .teaser {
   border: none;
