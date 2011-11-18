@@ -292,7 +292,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['body'] = implode(' ', $event_body);
           $calendar_output .= '<div class="event"><div class="date">';
           $calendar_output .= $event['date'];
-          $calendar_output .= '</div><div class="description"><div class="event-title"><a href="calevent?path=';
+          $calendar_output .= '</div><div class="description"><div class="event-title"><a href="' . base_path() . 'calevent?path=';
           $calendar_output .= $event['link'];
           $calendar_output .= '" rel="lightmodal[|width:780px;]">';
           $calendar_output .= $event['title'];
