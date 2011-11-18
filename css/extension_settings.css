@@ -292,3 +292,15 @@
 #block-extension_settings-8 .view-more {
   float: right;
 }
+
+#extension-calendar-lightbox {
+  float: left;
+  text-align: left;
+  margin: 30px;
+}
+
+#extension-calendar-lightbox .column-left {
+  float: left;
+  width: 175px;
+  font-weight: bold;
+}
