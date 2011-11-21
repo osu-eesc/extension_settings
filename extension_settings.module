@@ -132,18 +132,19 @@ function extension_settings_menu() {
 function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
   if ($op == 'list') {
     $blocks[0]['info'] = t('Life: Get good at it sidebar links');
-    $blocks[1]['info'] = t('Badge - Gardening');
+/*    $blocks[1]['info'] = t('Badge - Gardening');
     $blocks[2]['info'] = t('Badge - Trees and Woodlands');
     $blocks[3]['info'] = t('Badge - Food Preservation');
     $blocks[4]['info'] = t('Badge - Food and Nutrition');
     $blocks[5]['info'] = t('Badge - Family and Youth');
     $blocks[6]['info'] = t('Badge - Health and Wellness');
-    $blocks[7]['info'] = t('Badge - Small Farms');
+    $blocks[7]['info'] = t('Badge - Small Farms'); */
     $blocks[8]['info'] = t('Calendar Block (CWS Feed)');
     $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
 		$blocks[11]['info'] = t('Extension Neapolitan Block');
 		$blocks[12]['info'] = t('Extension Banners Block');
+		$blocks[13]['info'] = t('Extension Drupal help block');
     return $blocks;
   } else if ($op == 'view') {
     $block = array();
@@ -189,7 +190,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['subject'] = t('');
         $block['content'] = t($ggai_output);
         return $block;
-      case 1:
+/*      case 1:
         $badge_content = '<a title="Oregon State University Extension Service: Gardening" href="http://extension.oregonstate.edu/node/320"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg320.gif" width="190" height="52" alt="Oregon State University Extension Service: Gardening badge image" /></a>';
         $block['subject'] = t('');
         $block['content'] = t($badge_content);
@@ -223,7 +224,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $badge_content = '<a title="Oregon State University Extension Service: Small Farms" href="http://extension.oregonstate.edu/node/304"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg304.gif" width="190" height="52" alt="Oregon State University Extension Service: Small Farms badge image" /></a>';
         $block['subject'] = t('');
         $block['content'] = t($badge_content);
-        return $block;
+        return $block; */
       case 8:
         $shortname = variable_get('extension_settings_calendar_shortname', '');
         $lookahead = variable_get('extension_settings_calendar_lookahead', '90');
@@ -393,6 +394,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         }
         $block['subject'] = t('');
         $block['content'] = $banner_content;
+        return $block;
+      case 13:
+        $block_content = '<ul><li><a href="http://extension.oregonstate.edu/help">Visit site update instructions</a></li><li><a href="http://extension.oregonstate.edu/employee/extension-webmaster#email-form">Contact support</a></li></ul>';
+        $block['subject'] = t('Get Drupal Help');
+        $block['content'] = t($block_content);
         return $block;
     }
   }
