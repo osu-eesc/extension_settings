@@ -412,22 +412,33 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
   }
 }
 function extension_settings_globalblock_content($globalblock_id) {
-  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
+//  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
+  $fileurl = 'http://extension/globalblock' . $globalblock_id;
   $globaldata = file_get_contents($fileurl);
-  if ($globaldata) {
-    $regionslength = strpos($globaldata, '</regions>') - 47;
-    $globalregions = explode(',', substr($globaldata, 47, $regionslength));
-    $site_region = variable_get('extension_settings_region', '');
-    if (in_array($site_region, $globalregions)) {
-      $globalcontentstart = strpos($globaldata, '</regions>') + 31;
-      if($globalblock_id == '1') {
-        $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . substr($globaldata, $globalcontentstart, -22) . '</div></div>';
-      } else {
+  $site_region = variable_get('extension_settings_region', '');
+  $globalblock_content = '';
+  if ($globalblock_id == '1') {
+    $globaldata = unserialize($globaldata);
+    $emergency_content = '';
+    foreach (array_keys($globaldata) as $key) {
+      if (in_array($site_region, $globaldata[$key]['regions'])) {
+        $emergency_content .= '<!--[if IE 6]> <style type="text/css"> .emergency-arrow { background-image: url(\'' . base_path() . drupal_get_path('module', 'extension_settings') . '/images/emergency_arrow.gif\'); } .emergency-wrapper { background-image: url(\'' . base_path() . drupal_get_path('module', 'extension_settings') . '/images/emergency_wrapper_black.png\'); background-repeat: repeat-y; } .emergency-wrapper-black { top: 50%; }</style> <![endif]-->';
+        $emergency_content .= '<div class="emergency emergency-' . $key . '"><h2 class="emergency-title">' . check_plain($globaldata[$key]['title']) . '</h2>';
+        $emergency_content .= '<div class="emergency-body">' . $globaldata[$key]['content'] . '</div>';
+        $emergency_content .= '</div>';
+      }
+    }
+    $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . $emergency_content . '</div></div>';
+  }
+  if ($globalblock_id == '2') {
+    if ($globaldata) {
+      $regionslength = strpos($globaldata, '</regions>') - 47;
+      $globalregions = explode(',', substr($globaldata, 47, $regionslength));
+      if (in_array($site_region, $globalregions)) {
+        $globalcontentstart = strpos($globaldata, '</regions>') + 31;
         $globalblock_content = substr($globaldata, $globalcontentstart, -22);
       }
     }
-  } else {
-    $globalblock_content = '';
   }
   return $globalblock_content;
 }
@@ -442,12 +453,15 @@ function extension_settings_remove_item_by_value($array, $val = '', $preserve_ke
   }
   return ($preserve_keys === true) ? $array : array_values($array);
 }
+
 function extension_settings_global_block_1_code() {
   $global_content = variable_get('extension_settings_global_content_1', '');
   if ($global_content == '') {
     return NULL;
-  } else {
-    if (isset($global_content['regions'])) $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
+  } else {  
+    foreach (array_keys($global_content) as $key) {
+      $global_content[$key]['regions'] = extension_settings_remove_item_by_value($global_content[$key]['regions'], '0');
+    }
     print serialize($global_content);
     return NULL;
   }

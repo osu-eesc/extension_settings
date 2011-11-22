@@ -224,6 +224,25 @@
   width: 125px;
   height: 100%;
   float: left;
+  left: 0;
+}
+
+.emergency-wrapper h2 {
+  color: #7b0000;
+  margin: 0;
+}
+
+.emergency-wrapper a,
+.emergency-wrapper a:visited {
+  color: #7b0000;
+}
+
+.emergency-wrapper .emergency {
+  margin-top: 10px;
+}
+
+.emergency-wrapper .emergency-0 {
+  margin-top: 0;
 }
 
 /*******Banners Block*******/

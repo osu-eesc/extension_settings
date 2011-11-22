@@ -28,7 +28,7 @@ function extension_settings_global_emergency() {
         '#value' => '<div class="notification-regions">' . implode(', ', $notifications[$key]['regions']) . '</div>',
       );
       $form['global_content']['notifications'][$key]['remove'] = array(
-        '#value' => '<div class="notification-remove"><a href="global/remove/' . $key . '">remove</a></div>',
+        '#value' => '<div class="notification-remove"><a href="' . base_path() . 'admin/settings/extension/global/remove/' . $key . '">remove</a></div>',
       );
     }
   }
