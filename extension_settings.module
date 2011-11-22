@@ -94,7 +94,15 @@ function extension_settings_menu() {
     'file' => 'includes/extension_settings.global.emergency.inc',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
-  $items['admin/settings/extension/global/block2'] = array(
+  $items['admin/settings/extension/global/remove'] = array(
+    'title' => t('Remove Emergency Notification'),
+    'description' => t('Removes an Emergency Information.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('extension_settings_global_emergency_remove'),
+    'access arguments' => array('administer extension global content'),
+    'file' => 'includes/extension_settings.global.emergency.inc',
+    'type' => MENU_CALLBACK,
+  );  $items['admin/settings/extension/global/block2'] = array(
     'title' => t('Block 2'),
     'description' => t('Global content for block 2.'),
     'page callback' => 'drupal_get_form',
@@ -439,14 +447,11 @@ function extension_settings_global_block_1_code() {
   if ($global_content == '') {
     return NULL;
   } else {
-    $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
-    $xml_data['regions'] = implode(',', $global_content['regions']);
-    $xml_data['content'] = $global_content['content'];
-    print '<?xml version="1.0" encoding="UTF-8"?>';
-    print '<regions>' . $xml_data['regions'] . '</regions>';
-    print '<globalblock_content>' . $xml_data['content'] . '</globalblock_content>';
+    if (isset($global_content['regions'])) $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
+    print serialize($global_content);
     return NULL;
   }
+
 }
 function extension_settings_global_block_2_code() {
   $global_content = variable_get('extension_settings_global_content_2', '');
@@ -513,6 +518,12 @@ function extension_settings_theme() {
        'form' => NULL,
       ),
      'file' => 'includes/extension_settings.banners.inc',
+   ),
+   'extension_settings_global_emergency' => array(
+     'arguments' => array(
+       'form' => NULL,
+      ),
+     'file' => 'includes/extension_settings.global.emergency.inc',
    ),
  );
 }
