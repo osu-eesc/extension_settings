@@ -140,14 +140,14 @@ function extension_settings_menu() {
 function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
   if ($op == 'list') {
     $blocks[0]['info'] = t('Life: Get good at it sidebar links');
-/*    $blocks[1]['info'] = t('Badge - Gardening');
-    $blocks[2]['info'] = t('Badge - Trees and Woodlands');
-    $blocks[3]['info'] = t('Badge - Food Preservation');
-    $blocks[4]['info'] = t('Badge - Food and Nutrition');
-    $blocks[5]['info'] = t('Badge - Family and Youth');
+    $blocks[1]['info'] = t('Calendar Block 1 (CWS Feed)');
+    $blocks[2]['info'] = t('Calendar Block 2 (CWS Feed)');
+    $blocks[3]['info'] = t('Calendar Block 3 (CWS Feed)');
+    $blocks[4]['info'] = t('Calendar Block 4 (CWS Feed)');
+/*    $blocks[5]['info'] = t('Badge - Family and Youth');
     $blocks[6]['info'] = t('Badge - Health and Wellness');
-    $blocks[7]['info'] = t('Badge - Small Farms'); */
-    $blocks[8]['info'] = t('Calendar Block (CWS Feed)');
+    $blocks[7]['info'] = t('Badge - Small Farms');
+    $blocks[8]['info'] = t('Calendar Block (CWS Feed)'); */
     $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
 		$blocks[11]['info'] = t('Extension Neapolitan Block');
@@ -198,46 +198,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['subject'] = t('');
         $block['content'] = t($ggai_output);
         return $block;
-/*      case 1:
-        $badge_content = '<a title="Oregon State University Extension Service: Gardening" href="http://extension.oregonstate.edu/node/320"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg320.gif" width="190" height="52" alt="Oregon State University Extension Service: Gardening badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 2:
-        $badge_content = '<a title="Oregon State University Extension Service: Trees &amp; Woodlands" href="http://extension.oregonstate.edu/node/3333"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg3333.gif" width="190" height="52" alt="Oregon State University Extension Service: Trees &amp; Woodlands badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 3:
-        $badge_content = '<a title="Oregon State University Extension Service: Food Preservation" href="http://extension.oregonstate.edu/node/305"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg305.gif" width="190" height="52" alt="Oregon State University Extension Service: Food Preservation badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 4:
-        $badge_content = '<a title="Oregon State University Extension Service: Food &amp; Nutrition" href="http://extension.oregonstate.edu/node/306"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg306.gif" width="190" height="52" alt="Oregon State University Extension Service: Food &amp; Nutrition badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 5:
-        $badge_content = '<a title="Oregon State University Extension Service: Family &amp; Youth" href="http://extension.oregonstate.edu/node/307"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg307.gif" width="190" height="52" alt="Oregon State University Extension Service: Family &amp; Youth badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 6:
-        $badge_content = '<a title="Oregon State University Extension Service: Health &amp; Wellness" href="http://extension.oregonstate.edu/node/308"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg308.gif" width="190" height="52" alt="Oregon State University Extension Service: Health &amp; Wellness badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 7:
-        $badge_content = '<a title="Oregon State University Extension Service: Small Farms" href="http://extension.oregonstate.edu/node/304"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg304.gif" width="190" height="52" alt="Oregon State University Extension Service: Small Farms badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block; */
-      case 8:
-        $shortname = variable_get('extension_settings_calendar_shortname', '');
-        $lookahead = variable_get('extension_settings_calendar_lookahead', '90');
-        $disp_num = variable_get('extension_settings_calendar_numdisplay', '5');
-        $teaser = variable_get('extension_settings_calendar_teaser', '15');
+      case 1:
+        $shortname = variable_get('extension_settings_calendar1_shortname', '');
+        $lookahead = variable_get('extension_settings_calendar1_lookahead', '90');
+        $disp_num = variable_get('extension_settings_calendar1_numdisplay', '5');
+        $teaser = variable_get('extension_settings_calendar1_teaser', '15');
         $calendar_output = '';
         $xml_path = 'http://calendar.oregonstate.edu/today+' . $lookahead . '/list/' . $shortname . '/rss20.xml';
         $xml = simplexml_load_file($xml_path);
@@ -317,7 +282,297 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         if ($flag == 0) $calendar_output = '';
         $block['subject'] = t('Upcoming Events');
         $block['content'] = $calendar_output;
+        unset($shortname);
+        unset($lookahead);
+        unset($disp_num);
+        unset($teaser);
         return $block;
+      case 2:
+        $shortname = variable_get('extension_settings_calendar2_shortname', '');
+        $lookahead = variable_get('extension_settings_calendar2_lookahead', '90');
+        $disp_num = variable_get('extension_settings_calendar2_numdisplay', '5');
+        $teaser = variable_get('extension_settings_calendar2_teaser', '15');
+        $calendar_output = '';
+        $xml_path = 'http://calendar.oregonstate.edu/today+' . $lookahead . '/list/' . $shortname . '/rss20.xml';
+        $xml = simplexml_load_file($xml_path);
+        $flag = count($xml->channel->item);
+        if ($shortname == '') $flag = 0;
+        if ($flag != 0) {
+          $calendar_output .= '<div id="calendar"><a class="rss" href="';
+          $calendar_output .= $xml_path;
+          $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
+        }
+        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+          unset($event);
+          $event = $xml->channel->item[$i];
+          $event_title = $event->title;
+          $event_link = $event->link;
+          preg_match('/<div(.*?)<\/div>/', $event->description, $matches);
+          $dates = strip_tags($matches[0]);
+          $event->description = preg_replace('/<div(.*?)<\/div>/', '', $event->description);
+          $event_body = preg_split('/\s+/', trim(strip_tags($event->description)), ($teaser + 1));
+          if (count($event_body) == $teaser + 1) {
+            array_pop($event_body);
+            $event_body[] = '&hellip;';
+          }
+          unset($event);
+          $event['allday'] = 0;
+          if (preg_match('/\(.*?\)/', $dates) != 0) $event['allday'] = 1;
+          $dates = explode(' - ', preg_replace('/\(.*?\)/', '', $dates));
+          $event['start'] = strtotime($dates[0]);
+          $event['newday'] = 0;
+          if (isset($dates[1])) {
+            if (preg_match('/(mon)|(tue)|(wed)|(thu)|(fri)|(sat)|(sun)/i', $dates[1]) != 0) {
+              $event['newday'] = 1;
+            }
+            $event['end'] = strtotime($dates[1]);
+          }
+          $event['date'] = '<span class="start">';
+          $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
+          if (!isset($event['end']) && $event['newday'] == 0) {
+            $event['date'] .= '(all day)';
+          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+            $event['date'] .= '';
+          } else {
+            $event['date'] .= date('g:ia', $event['start']);
+          }
+          $event['date'] .= '</span></span>';
+          if (isset($event['end'])) {
+            $event['date'] .= ' - <span class="end">';
+            if ($event['newday'] == 1) {
+              $event['date'] .= date('M. d, Y', $event['end']);
+            }
+            $event['date'] .= ' <span class="time">';
+            if ($event['newday'] == 1 && $event['allday'] == 1) {
+              $event['date'] .= '(all day)';
+            } else {
+              $event['date'] .= date('g:ia', $event['end']);
+            }
+            $event['date'] .= '</span></span>';
+          }
+          $event['title'] = $event_title;
+          $event['link'] = $event_link;
+          $event['body'] = implode(' ', $event_body);
+          $calendar_output .= '<div class="event"><div class="date">';
+          $calendar_output .= $event['date'];
+          $calendar_output .= '</div><div class="description"><div class="event-title"><a href="' . base_path() . 'calevent?path=';
+          $calendar_output .= $event['link'];
+          $calendar_output .= '" rel="lightmodal[|width:560px;]">';
+          $calendar_output .= $event['title'];
+          $calendar_output .= '</a></div><div class="teaser">';
+          $calendar_output .= $event['body'];
+          $calendar_output .= '</div></div></div>';
+        }
+        if ($flag != 0) {
+          $calendar_output .= '</div><div class="view-more"><a href="http://calendar.oregonstate.edu/advanced/today+60/';
+          $calendar_output .= $shortname;
+          $calendar_output .= '">view more events &raquo;</a></div>';
+        }
+        if ($flag == 0) $calendar_output = '';
+        $block['subject'] = t('Upcoming Events');
+        $block['content'] = $calendar_output;
+        unset($shortname);
+        unset($lookahead);
+        unset($disp_num);
+        unset($teaser);
+        return $block;
+      case 3:
+        $shortname = variable_get('extension_settings_calendar3_shortname', '');
+        $lookahead = variable_get('extension_settings_calendar3_lookahead', '90');
+        $disp_num = variable_get('extension_settings_calendar3_numdisplay', '5');
+        $teaser = variable_get('extension_settings_calendar3_teaser', '15');
+        $calendar_output = '';
+        $xml_path = 'http://calendar.oregonstate.edu/today+' . $lookahead . '/list/' . $shortname . '/rss20.xml';
+        $xml = simplexml_load_file($xml_path);
+        $flag = count($xml->channel->item);
+        if ($shortname == '') $flag = 0;
+        if ($flag != 0) {
+          $calendar_output .= '<div id="calendar"><a class="rss" href="';
+          $calendar_output .= $xml_path;
+          $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
+        }
+        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+          unset($event);
+          $event = $xml->channel->item[$i];
+          $event_title = $event->title;
+          $event_link = $event->link;
+          preg_match('/<div(.*?)<\/div>/', $event->description, $matches);
+          $dates = strip_tags($matches[0]);
+          $event->description = preg_replace('/<div(.*?)<\/div>/', '', $event->description);
+          $event_body = preg_split('/\s+/', trim(strip_tags($event->description)), ($teaser + 1));
+          if (count($event_body) == $teaser + 1) {
+            array_pop($event_body);
+            $event_body[] = '&hellip;';
+          }
+          unset($event);
+          $event['allday'] = 0;
+          if (preg_match('/\(.*?\)/', $dates) != 0) $event['allday'] = 1;
+          $dates = explode(' - ', preg_replace('/\(.*?\)/', '', $dates));
+          $event['start'] = strtotime($dates[0]);
+          $event['newday'] = 0;
+          if (isset($dates[1])) {
+            if (preg_match('/(mon)|(tue)|(wed)|(thu)|(fri)|(sat)|(sun)/i', $dates[1]) != 0) {
+              $event['newday'] = 1;
+            }
+            $event['end'] = strtotime($dates[1]);
+          }
+          $event['date'] = '<span class="start">';
+          $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
+          if (!isset($event['end']) && $event['newday'] == 0) {
+            $event['date'] .= '(all day)';
+          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+            $event['date'] .= '';
+          } else {
+            $event['date'] .= date('g:ia', $event['start']);
+          }
+          $event['date'] .= '</span></span>';
+          if (isset($event['end'])) {
+            $event['date'] .= ' - <span class="end">';
+            if ($event['newday'] == 1) {
+              $event['date'] .= date('M. d, Y', $event['end']);
+            }
+            $event['date'] .= ' <span class="time">';
+            if ($event['newday'] == 1 && $event['allday'] == 1) {
+              $event['date'] .= '(all day)';
+            } else {
+              $event['date'] .= date('g:ia', $event['end']);
+            }
+            $event['date'] .= '</span></span>';
+          }
+          $event['title'] = $event_title;
+          $event['link'] = $event_link;
+          $event['body'] = implode(' ', $event_body);
+          $calendar_output .= '<div class="event"><div class="date">';
+          $calendar_output .= $event['date'];
+          $calendar_output .= '</div><div class="description"><div class="event-title"><a href="' . base_path() . 'calevent?path=';
+          $calendar_output .= $event['link'];
+          $calendar_output .= '" rel="lightmodal[|width:560px;]">';
+          $calendar_output .= $event['title'];
+          $calendar_output .= '</a></div><div class="teaser">';
+          $calendar_output .= $event['body'];
+          $calendar_output .= '</div></div></div>';
+        }
+        if ($flag != 0) {
+          $calendar_output .= '</div><div class="view-more"><a href="http://calendar.oregonstate.edu/advanced/today+60/';
+          $calendar_output .= $shortname;
+          $calendar_output .= '">view more events &raquo;</a></div>';
+        }
+        if ($flag == 0) $calendar_output = '';
+        $block['subject'] = t('Upcoming Events');
+        $block['content'] = $calendar_output;
+        unset($shortname);
+        unset($lookahead);
+        unset($disp_num);
+        unset($teaser);
+        return $block;
+      case 4:
+        $shortname = variable_get('extension_settings_calendar4_shortname', '');
+        $lookahead = variable_get('extension_settings_calendar4_lookahead', '90');
+        $disp_num = variable_get('extension_settings_calendar4_numdisplay', '5');
+        $teaser = variable_get('extension_settings_calendar4_teaser', '15');
+        $calendar_output = '';
+        $xml_path = 'http://calendar.oregonstate.edu/today+' . $lookahead . '/list/' . $shortname . '/rss20.xml';
+        $xml = simplexml_load_file($xml_path);
+        $flag = count($xml->channel->item);
+        if ($shortname == '') $flag = 0;
+        if ($flag != 0) {
+          $calendar_output .= '<div id="calendar"><a class="rss" href="';
+          $calendar_output .= $xml_path;
+          $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
+        }
+        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+          unset($event);
+          $event = $xml->channel->item[$i];
+          $event_title = $event->title;
+          $event_link = $event->link;
+          preg_match('/<div(.*?)<\/div>/', $event->description, $matches);
+          $dates = strip_tags($matches[0]);
+          $event->description = preg_replace('/<div(.*?)<\/div>/', '', $event->description);
+          $event_body = preg_split('/\s+/', trim(strip_tags($event->description)), ($teaser + 1));
+          if (count($event_body) == $teaser + 1) {
+            array_pop($event_body);
+            $event_body[] = '&hellip;';
+          }
+          unset($event);
+          $event['allday'] = 0;
+          if (preg_match('/\(.*?\)/', $dates) != 0) $event['allday'] = 1;
+          $dates = explode(' - ', preg_replace('/\(.*?\)/', '', $dates));
+          $event['start'] = strtotime($dates[0]);
+          $event['newday'] = 0;
+          if (isset($dates[1])) {
+            if (preg_match('/(mon)|(tue)|(wed)|(thu)|(fri)|(sat)|(sun)/i', $dates[1]) != 0) {
+              $event['newday'] = 1;
+            }
+            $event['end'] = strtotime($dates[1]);
+          }
+          $event['date'] = '<span class="start">';
+          $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
+          if (!isset($event['end']) && $event['newday'] == 0) {
+            $event['date'] .= '(all day)';
+          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+            $event['date'] .= '';
+          } else {
+            $event['date'] .= date('g:ia', $event['start']);
+          }
+          $event['date'] .= '</span></span>';
+          if (isset($event['end'])) {
+            $event['date'] .= ' - <span class="end">';
+            if ($event['newday'] == 1) {
+              $event['date'] .= date('M. d, Y', $event['end']);
+            }
+            $event['date'] .= ' <span class="time">';
+            if ($event['newday'] == 1 && $event['allday'] == 1) {
+              $event['date'] .= '(all day)';
+            } else {
+              $event['date'] .= date('g:ia', $event['end']);
+            }
+            $event['date'] .= '</span></span>';
+          }
+          $event['title'] = $event_title;
+          $event['link'] = $event_link;
+          $event['body'] = implode(' ', $event_body);
+          $calendar_output .= '<div class="event"><div class="date">';
+          $calendar_output .= $event['date'];
+          $calendar_output .= '</div><div class="description"><div class="event-title"><a href="' . base_path() . 'calevent?path=';
+          $calendar_output .= $event['link'];
+          $calendar_output .= '" rel="lightmodal[|width:560px;]">';
+          $calendar_output .= $event['title'];
+          $calendar_output .= '</a></div><div class="teaser">';
+          $calendar_output .= $event['body'];
+          $calendar_output .= '</div></div></div>';
+        }
+        if ($flag != 0) {
+          $calendar_output .= '</div><div class="view-more"><a href="http://calendar.oregonstate.edu/advanced/today+60/';
+          $calendar_output .= $shortname;
+          $calendar_output .= '">view more events &raquo;</a></div>';
+        }
+        if ($flag == 0) $calendar_output = '';
+        $block['subject'] = t('Upcoming Events');
+        $block['content'] = $calendar_output;
+        unset($shortname);
+        unset($lookahead);
+        unset($disp_num);
+        unset($teaser);
+        return $block;
+/*      case 5:
+        $badge_content = '<a title="Oregon State University Extension Service: Family &amp; Youth" href="http://extension.oregonstate.edu/node/307"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg307.gif" width="190" height="52" alt="Oregon State University Extension Service: Family &amp; Youth badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 6:
+        $badge_content = '<a title="Oregon State University Extension Service: Health &amp; Wellness" href="http://extension.oregonstate.edu/node/308"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg308.gif" width="190" height="52" alt="Oregon State University Extension Service: Health &amp; Wellness badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 7:
+        $badge_content = '<a title="Oregon State University Extension Service: Small Farms" href="http://extension.oregonstate.edu/node/304"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg304.gif" width="190" height="52" alt="Oregon State University Extension Service: Small Farms badge image" /></a>';
+        $block['subject'] = t('');
+        $block['content'] = t($badge_content);
+        return $block;
+      case 8:
+        $block['subject'] = t('');
+        $block['content'] = t('');
+        return $block; */
       case 9:
         $block['subject'] = t('');
         $block['content'] = extension_settings_globalblock_content('1');

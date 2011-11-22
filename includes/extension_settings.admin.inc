@@ -57,17 +57,25 @@ function extension_settings_admin_settings() {
     '#type' => 'fieldset',
     '#title' => t('Calendar Settings'),
     '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+    '#attributes' => array('class' => 'calendars')
+  );
+
+  $form['configuration_settings']['calendar']['calendar1'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Calendar 1'),
+    '#collapsible' => FALSE,
     '#collapsed' => FALSE
   );
 
-  $form['configuration_settings']['calendar']['extension_settings_calendar_shortname'] = array(
+  $form['configuration_settings']['calendar']['calendar1']['extension_settings_calendar1_shortname'] = array(
     '#type' => 'textfield',
     '#title' => t('Short name'),
     '#description' => t('Enter the short name of the site for the calendar to use.'),
-    '#default_value' => variable_get('extension_settings_calendar_shortname', ''),
+    '#default_value' => variable_get('extension_settings_calendar1_shortname', ''),
   );
   
-  $form['configuration_settings']['calendar']['extension_settings_calendar_numdisplay'] = array(
+  $form['configuration_settings']['calendar']['calendar1']['extension_settings_calendar1_numdisplay'] = array(
     '#type' => 'select',
     '#title' => t('Events to display'),
     '#description' => t('Select the number of events to display in the calendar.'),
@@ -83,10 +91,10 @@ function extension_settings_admin_settings() {
       '9' => t('9'),
       '10' => t('10'),
     ),
-    '#default_value' => variable_get('extension_settings_calendar_numdisplay', '5'),
+    '#default_value' => variable_get('extension_settings_calendar1_numdisplay', '5'),
   );
   
-  $form['configuration_settings']['calendar']['extension_settings_calendar_teaser'] = array(
+  $form['configuration_settings']['calendar']['calendar1']['extension_settings_calendar1_teaser'] = array(
     '#type' => 'select',
     '#title' => t('Teaser Length'),
     '#description' => t('Select the number of words to display in the teaser.'),
@@ -98,10 +106,10 @@ function extension_settings_admin_settings() {
       '25' => t('25'),
       '30' => t('30'),
     ),
-    '#default_value' => variable_get('extension_settings_calendar_teaser', '15'),
+    '#default_value' => variable_get('extension_settings_calendar1_teaser', '15'),
   );
   
-  $form['configuration_settings']['calendar']['extension_settings_calendar_lookahead'] = array(
+  $form['configuration_settings']['calendar']['calendar1']['extension_settings_calendar1_lookahead'] = array(
     '#type' => 'select',
     '#title' => t('Look ahead days'),
     '#description' => t('Select the number of days for the calendar to look ahead.'),
@@ -111,7 +119,190 @@ function extension_settings_admin_settings() {
       '60' => t('60'),
       '90' => t('90'),
     ),
-    '#default_value' => variable_get('extension_settings_calendar_lookahead', '90'),
+    '#default_value' => variable_get('extension_settings_calendar1_lookahead', '90'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar2'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Calendar 2'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE
+  );
+
+  $form['configuration_settings']['calendar']['calendar2']['extension_settings_calendar2_shortname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Short name'),
+    '#description' => t('Enter the short name of the site for the calendar to use.'),
+    '#default_value' => variable_get('extension_settings_calendar2_shortname', ''),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar2']['extension_settings_calendar2_numdisplay'] = array(
+    '#type' => 'select',
+    '#title' => t('Events to display'),
+    '#description' => t('Select the number of events to display in the calendar.'),
+    '#options' => array(
+      '1' => t('1'),
+      '2' => t('2'),
+      '3' => t('3'),
+      '4' => t('4'),
+      '5' => t('5'),
+      '6' => t('6'),
+      '7' => t('7'),
+      '8' => t('8'),
+      '9' => t('9'),
+      '10' => t('10'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar2_numdisplay', '5'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar2']['extension_settings_calendar2_teaser'] = array(
+    '#type' => 'select',
+    '#title' => t('Teaser Length'),
+    '#description' => t('Select the number of words to display in the teaser.'),
+    '#options' => array(
+      '5' => t('5'),
+      '10' => t('10'),
+      '15' => t('15'),
+      '25' => t('20'),
+      '25' => t('25'),
+      '30' => t('30'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar2_teaser', '15'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar2']['extension_settings_calendar2_lookahead'] = array(
+    '#type' => 'select',
+    '#title' => t('Look ahead days'),
+    '#description' => t('Select the number of days for the calendar to look ahead.'),
+    '#options' => array(
+      '15' => t('15'),
+      '30' => t('30'),
+      '60' => t('60'),
+      '90' => t('90'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar2_lookahead', '90'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar3'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Calendar 3'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE
+  );
+
+  $form['configuration_settings']['calendar']['calendar3']['extension_settings_calendar3_shortname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Short name'),
+    '#description' => t('Enter the short name of the site for the calendar to use.'),
+    '#default_value' => variable_get('extension_settings_calendar3_shortname', ''),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar3']['extension_settings_calendar3_numdisplay'] = array(
+    '#type' => 'select',
+    '#title' => t('Events to display'),
+    '#description' => t('Select the number of events to display in the calendar.'),
+    '#options' => array(
+      '1' => t('1'),
+      '2' => t('2'),
+      '3' => t('3'),
+      '4' => t('4'),
+      '5' => t('5'),
+      '6' => t('6'),
+      '7' => t('7'),
+      '8' => t('8'),
+      '9' => t('9'),
+      '10' => t('10'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar3_numdisplay', '5'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar3']['extension_settings_calendar3_teaser'] = array(
+    '#type' => 'select',
+    '#title' => t('Teaser Length'),
+    '#description' => t('Select the number of words to display in the teaser.'),
+    '#options' => array(
+      '5' => t('5'),
+      '10' => t('10'),
+      '15' => t('15'),
+      '25' => t('20'),
+      '25' => t('25'),
+      '30' => t('30'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar3_teaser', '15'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar3']['extension_settings_calendar3_lookahead'] = array(
+    '#type' => 'select',
+    '#title' => t('Look ahead days'),
+    '#description' => t('Select the number of days for the calendar to look ahead.'),
+    '#options' => array(
+      '15' => t('15'),
+      '30' => t('30'),
+      '60' => t('60'),
+      '90' => t('90'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar3_lookahead', '90'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar4'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Calendar 4'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE
+  );
+
+  $form['configuration_settings']['calendar']['calendar4']['extension_settings_calendar4_shortname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Short name'),
+    '#description' => t('Enter the short name of the site for the calendar to use.'),
+    '#default_value' => variable_get('extension_settings_calendar4_shortname', ''),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar4']['extension_settings_calendar4_numdisplay'] = array(
+    '#type' => 'select',
+    '#title' => t('Events to display'),
+    '#description' => t('Select the number of events to display in the calendar.'),
+    '#options' => array(
+      '1' => t('1'),
+      '2' => t('2'),
+      '3' => t('3'),
+      '4' => t('4'),
+      '5' => t('5'),
+      '6' => t('6'),
+      '7' => t('7'),
+      '8' => t('8'),
+      '9' => t('9'),
+      '10' => t('10'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar4_numdisplay', '5'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar4']['extension_settings_calendar4_teaser'] = array(
+    '#type' => 'select',
+    '#title' => t('Teaser Length'),
+    '#description' => t('Select the number of words to display in the teaser.'),
+    '#options' => array(
+      '5' => t('5'),
+      '10' => t('10'),
+      '15' => t('15'),
+      '25' => t('20'),
+      '25' => t('25'),
+      '30' => t('30'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar4_teaser', '15'),
+  );
+  
+  $form['configuration_settings']['calendar']['calendar4']['extension_settings_calendar4_lookahead'] = array(
+    '#type' => 'select',
+    '#title' => t('Look ahead days'),
+    '#description' => t('Select the number of days for the calendar to look ahead.'),
+    '#options' => array(
+      '15' => t('15'),
+      '30' => t('30'),
+      '60' => t('60'),
+      '90' => t('90'),
+    ),
+    '#default_value' => variable_get('extension_settings_calendar4_lookahead', '90'),
   );
   
   $form['configuration_settings']['extension_settings_region'] = array(

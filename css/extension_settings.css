@@ -271,44 +271,71 @@
 }
 
 /*******Calendar Block*******/
-#block-extension_settings-8 {
+#block-extension_settings-1,
+#block-extension_settings-2,
+#block-extension_settings-3,
+#block-extension_settings-4 {
   border-top: 1px dotted #999;
   padding-top: 15px;
 }
 
-#block-extension_settings-8 .teaser {
+#block-extension_settings-1 .teaser,
+#block-extension_settings-2 .teaser,
+#block-extension_settings-3 .teaser,
+#block-extension_settings-4 .teaser {
   border: none;
   padding: 0 !important;
 }
 
-#block-extension_settings-8 .title {
+#block-extension_settings-1 .title,
+#block-extension_settings-2 .title,
+#block-extension_settings-3 .title,
+#block-extension_settings-4 .title {
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
-#block-extension_settings-8 .rss {
+#block-extension_settings-1 .rss,
+#block-extension_settings-2 .rss,
+#block-extension_settings-3 .rss,
+#block-extension_settings-4 .rss {
   float: right;
   margin-top: -25px;
 }
 
-#block-extension_settings-8 .event {
+#block-extension_settings-1 .event,
+#block-extension_settings-2 .event,
+#block-extension_settings-3 .event,
+#block-extension_settings-4 .event {
   margin-top: 10px;
 }
 
-#block-extension_settings-8 .description {
+#block-extension_settings-1 .description,
+#block-extension_settings-2 .description,
+#block-extension_settings-3 .description,
+#block-extension_settings-4 .description {
   margin-left: 10px;
 }
 
-#block-extension_settings-8 .event-title a {
+#block-extension_settings-1 .event-title a,
+#block-extension_settings-2 .event-title a,
+#block-extension_settings-3 .event-title a,
+#block-extension_settings-4 .event-title a {
   font-weight: bold !important;
 }
 
-#block-extension_settings-8 .date {
+#block-extension_settings-1 .date,
+#block-extension_settings-2 .date,
+#block-extension_settings-3 .date,
+#block-extension_settings-4 .date {
   color: #606060;
   font-weight: bold;
 }
 
-#block-extension_settings-8 .view-more {
+#block-extension_settings-1 .view-more,
+#block-extension_settings-2 .view-more,
+#block-extension_settings-3 .view-more,
+#block-extension_settings-4 .view-more {
   float: right;
 }
 
@@ -340,3 +367,11 @@
 #block-extension_settings-13 ul {
   margin-bottom: 10px;
 }
+
+/*******Calendar Admin*******/
+#extension-settings-admin-settings .calendars .fieldset {
+  float: left;
+  width: 24%;
+  margin: 0 0.5%
+}
+
