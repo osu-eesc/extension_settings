@@ -404,30 +404,31 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = $banner_content;
         return $block;
       case 13:
-        $block_content = '<ul><li><a href="http://extension.oregonstate.edu/help">Visit site update instructions</a></li><li><a href="http://extension.oregonstate.edu/employee/extension-webmaster#email-form">Contact support</a></li></ul>';
-        $block['subject'] = t('Get Drupal Help');
+        $block_content = '<ul><li><a href="http://extension.oregonstate.edu/help">View Drupal instructions</a></li><li><a href="http://extension.oregonstate.edu/employee/extension-webmaster#email-form">Contact EESC for support</a></li></ul>';
+        $block['subject'] = t('Get help with your website');
         $block['content'] = t($block_content);
         return $block;
     }
   }
 }
 function extension_settings_globalblock_content($globalblock_id) {
-  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
+//  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
+  $fileurl = 'http://extension/globalblock' . $globalblock_id;
   $globaldata = file_get_contents($fileurl);
   $site_region = variable_get('extension_settings_region', '');
   $globalblock_content = '';
   if ($globalblock_id == '1') {
     $globaldata = unserialize($globaldata);
-    $emergency_content = '';
+    unset($emergency_content);
     foreach (array_keys($globaldata) as $key) {
-      if (in_array($site_region, $globaldata[$key]['regions'])) {
+      if (in_array($site_region, $globaldata[$key]['regions'])) {      
         $emergency_content .= '<!--[if IE 6]> <style type="text/css"> .emergency-arrow { background-image: url(\'' . base_path() . drupal_get_path('module', 'extension_settings') . '/images/emergency_arrow.gif\'); } .emergency-wrapper { background-image: url(\'' . base_path() . drupal_get_path('module', 'extension_settings') . '/images/emergency_wrapper_black.png\'); background-repeat: repeat-y; } .emergency-wrapper-black { top: 50%; }</style> <![endif]-->';
         $emergency_content .= '<div class="emergency emergency-' . $key . '"><h2 class="emergency-title">' . check_plain($globaldata[$key]['title']) . '</h2>';
         $emergency_content .= '<div class="emergency-body">' . $globaldata[$key]['content'] . '</div>';
         $emergency_content .= '</div>';
       }
     }
-    $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . $emergency_content . '</div></div>';
+    if(isset($emergency_content)) $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . $emergency_content . '</div></div>';
   }
   if ($globalblock_id == '2') {
     if ($globaldata) {
