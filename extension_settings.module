@@ -412,8 +412,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
   }
 }
 function extension_settings_globalblock_content($globalblock_id) {
-//  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
-  $fileurl = 'http://extension/globalblock' . $globalblock_id;
+  $fileurl = 'http://extension.oregonstate.edu/globalblock' . $globalblock_id;
   $globaldata = file_get_contents($fileurl);
   $site_region = variable_get('extension_settings_region', '');
   $globalblock_content = '';
