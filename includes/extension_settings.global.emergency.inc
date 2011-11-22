@@ -125,7 +125,7 @@ function extension_settings_global_emergency_remove_submit(&$form, &$form_state)
     $notifications = array_merge($notifications);
     variable_set('extension_settings_global_content_1', $notifications);
     drupal_set_message($message);
-    $form['#redirect'] = '/admin/settings/extension/global';
+    $form['#redirect'] = base_path() . '/admin/settings/extension/global';
 }
 
 function theme_extension_settings_global_emergency($form)  {
