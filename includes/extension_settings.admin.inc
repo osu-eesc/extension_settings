@@ -37,6 +37,14 @@ function extension_settings_admin_settings() {
     '#required' => TRUE
     );
 
+  $form['configuration_settings']['extension_settings_banner_link'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Banner Link'),
+    '#description' => t('Enter the URL for the banner graphic link. Useful for sub-sites. Leave blank to use defaults'),
+    '#default_value' => variable_get('extension_settings_banner_link', ''),
+    '#required' => FALSE
+  );
+    
   $form['configuration_settings']['extension_settings_header_text'] = array(
     '#type' => 'textfield',
     '#title' => t('Header Text'),
