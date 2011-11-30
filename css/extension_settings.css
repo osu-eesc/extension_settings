@@ -1,3 +1,12 @@
+#block-extension_settings-5 {
+  width: auto !important;
+  padding-left: 130px;
+}
+#block-extension_settings-5 .inner .content,
+#block-extension_settings-5 .inner .content a {
+  color: #cccccc !important;
+}
+
 #extension-settings-global-emergency input[type=checkbox],
 #extension-settings-global-block2 input[type=checkbox],
 #edit-extension-settings-region-1-wrapper input[type=radio],
@@ -375,3 +384,16 @@
   margin: 0 0.5%
 }
 
+/*******Header Top Menu Admin*******/
+form#extension-settings-header-menu .add-new #edit-title-wrapper,
+form#extension-settings-header-menu .add-new #edit-href-wrapper {
+  width: 49%;
+}
+
+form#extension-settings-header-menu .add-new #edit-title-wrapper {
+  float: left;
+}
+
+form#extension-settings-header-menu .add-new #edit-href-wrapper {
+  margin-left: 50%
+}
