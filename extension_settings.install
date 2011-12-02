@@ -9,6 +9,7 @@ function extension_settings_install() {
   variable_set('extension_settings_server_path', '/www/virtual/extension/');
   variable_set('extension_settings_sitename', 'OSU Extension Service');
   variable_set('extension_settings_site_type', '1');
+  variable_set('extension_settings_banner_link', '');
   variable_set('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/extension-webmaster'); 
 }
 
