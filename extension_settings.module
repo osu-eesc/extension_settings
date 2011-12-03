@@ -941,9 +941,3 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
     break;
   }
 }
-
-function extension_settings_preprocess_page(&$variables) {
-  if ($variables['node']->type == 'question_of_the_week') {
-    drupal_set_title('Question of the Week | ' . $variables['title']);
-  }
-}
