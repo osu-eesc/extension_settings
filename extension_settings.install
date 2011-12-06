@@ -9,8 +9,21 @@ function extension_settings_install() {
   variable_set('extension_settings_server_path', '/www/virtual/extension/');
   variable_set('extension_settings_sitename', 'OSU Extension Service');
   variable_set('extension_settings_site_type', '1');
+  variable_set('extension_settings_banner_title', '');
   variable_set('extension_settings_banner_link', '');
   variable_set('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/extension-webmaster'); 
+  
+  // set variables for osu_search 
+  variable_set('osu_search_other_results_page', '1');
+  variable_set('osu_search_collection_title', 'All Extension & Ag Experiment Station websites');  
+  variable_set('osu_search_collection_id', 'Extension');
+  variable_set('osu_search_collection_as_primary', '1');
+  variable_set('osu_search_hide_osu', '1');
+  
+  // make sure that the osu search module is enabled
+  $install_module = 'osu_search';
+  $result = db_query("UPDATE {system} SET `status` = %d WHERE `type` = 'module' AND `name` = '%s'", 1, $install_module);
+  return array();
 }
 
 /**
@@ -20,4 +33,21 @@ function extension_settings_uninstall() {
   // Remove the module from the system table
   db_query("DELETE FROM {system} WHERE `name` = 'extension_settings'");
 	db_query("DELETE FROM {variable} WHERE `name` LIKE 'extension_settings_%'");
+}
+
+/**
+ * Implementation of hook_update_N().
+ */
+function extension_settings_update_6001() {      
+  // make sure that the module is enabled
+ /*$install_module = 'osu_search';
+  $result = db_query("UPDATE {system} SET `status` = %d WHERE `type` = 'module' AND `name` = '%s'", 1, $install_module);
+  return array();
+  
+  // set variablesfor osu_search 
+  variable_set('osu_search_other_results_page', '1');
+  variable_set('osu_search_collection_title', 'NO Extension & Ag Experiment Station websites');  
+  variable_set('osu_search_collection_id', 'Extension');
+  variable_set('osu_search_collection_as_primary', '0');
+  variable_set('osu_search_hide_osu', '1'); */
 }

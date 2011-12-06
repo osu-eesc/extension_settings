@@ -36,12 +36,20 @@ function extension_settings_admin_settings() {
     '#options' => $siteTypes,
     '#required' => TRUE
     );
-
+    
   $form['configuration_settings']['extension_settings_banner_link'] = array(
     '#type' => 'textfield',
     '#title' => t('Banner Link'),
     '#description' => t('Enter the URL for the banner graphic link. Useful for sub-sites. Leave blank to use defaults'),
     '#default_value' => variable_get('extension_settings_banner_link', ''),
+    '#required' => FALSE
+  );
+  
+  $form['configuration_settings']['extension_settings_banner_title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Banner Link Title'),
+    '#description' => t('Enter the html link title if banner link is set above. Leave blank to use defaults'),
+    '#default_value' => variable_get('extension_settings_banner_title', ''),
     '#required' => FALSE
   );
     

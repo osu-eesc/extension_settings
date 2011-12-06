@@ -1,8 +1,7 @@
 ; $Id: extension_settings.info
 name        = Extension Settings
-description = Drupal 6 module. Provides common blocks and custom site configuration settings for EESC managed sites. 
-              Version 6.x-1-4 adds global messaging to extension theme.
-package     = Other
+description = Provides common blocks and custom site configuration settings for EESC managed sites (drupal 6).
+package     = Extension
 version     = "6.x-1.5"
 core        =  "6.x"
 project     = "extension_settings"
