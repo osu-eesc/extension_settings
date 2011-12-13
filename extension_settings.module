@@ -590,7 +590,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
                 ),
                 '2' => array(
                   'title' => 'Donate',
-                  'href' => 'https://osufoundation.org/giving/online_gift.shtml?first_designation=College%20of%20Agricul tural%20Sciences',
+                  'href' => 'https://osufoundation.org/giving/online_gift.shtml?first_designation=College%20of%20Agricultural%20Sciences',
                 ),
               );
               break;
@@ -910,27 +910,6 @@ function theme_extension_settings_formatter_comma($element) {
 function extension_settings_form_alter(&$form, $form_state, $form_id) {
   switch ($form_id) {
     // This is our form ID.
-    case 'page_node_form':
-      // remove the Show summary in full view field
-      unset($form['body_field']['teaser_include']);
-      // remove other unneeded fields
-      //unset($form['author']);
-      unset($form['revision_information']);
-    break;
-    case 'story_node_form':
-      // remove the Show summary in full view field
-      unset($form['body_field']['teaser_include']);
-      // remove other unneeded fields
-      //unset($form['author']);
-      unset($form['revision_information']);
-    break;
-    case 'book_node_form':
-      // remove the Show summary in full view field
-      unset($form['body_field']['teaser_include']);
-      // remove other unneeded fields
-      unset($form['author']);
-      unset($form['revision_information']);
-    break;
     case 'google_cse_searchbox_form':
       // remove form options on the form block
       unset($form['sitesearch']);
@@ -939,5 +918,17 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       $form['link']['link']['#field_suffix'] = NULL;
       $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <b>OR</b> select Browse Server to upload or select a file.';
     break;
+  }
+  if (strstr($form['form_id']['#value'], 'node')) {
+    foreach (array_keys($form['menu']['parent']['#options']) as $item) {
+      if (strstr($item, 'navigation')) unset($form['menu']['parent']['#options'][$item]);
+      if (variable_get('extension_settings_site_type', 0) != 4) {
+        if (strstr($item, 'primary-links')) unset($form['menu']['parent']['#options'][$item]);
+      }
+    }
+    // remove the Show summary in full view field
+    unset($form['body_field']['teaser_include']);
+    // remove other unneeded fields
+    unset($form['revision_information']);
   }
 }

@@ -20,7 +20,7 @@ function extension_settings_header_menu() {
           ),
           '2' => array(
             'title' => 'Donate',
-            'href' => 'https://osufoundation.org/giving/online_gift.shtml?first_designation=College%20of%20Agricul tural%20Sciences',
+            'href' => 'https://osufoundation.org/giving/online_gift.shtml?first_designation=College%20of%20Agricultural%20Sciences',
           ),
         );
         break;
