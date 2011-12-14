@@ -39,6 +39,7 @@ function extension_settings_perm() {
   $extension_permissions[] = 'administer extension settings';
   $extension_permissions[] = 'administer extension global content';
   $extension_permissions[] = 'administer extension banners';
+  $extension_permissions[] = 'select WYSIWYG input format';
   return $extension_permissions;
 }
 /**
@@ -926,9 +927,9 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
         if (strstr($item, 'primary-links')) unset($form['menu']['parent']['#options'][$item]);
       }
     }
-    // remove the Show summary in full view field
-    unset($form['body_field']['teaser_include']);
-    // remove other unneeded fields
-    unset($form['revision_information']);
+    $form['body_field']['teaser_include']['#default_value'] = FALSE;
+    $form['body_field']['teaser_include']['#access'] = FALSE;
+    $form['revision_information']['#access'] = FALSE;
+    $form['author']['#access'] = FALSE;
   }
 }
