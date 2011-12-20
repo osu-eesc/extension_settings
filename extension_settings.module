@@ -735,9 +735,9 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = $banner_content;
         return $block;
       case 13:
-        $block_content = '<ul><li><a href="http://extension.oregonstate.edu/help">View Drupal instructions</a></li><li><a href="http://extension.oregonstate.edu/employee/extension-webmaster#email-form">Contact EESC for support</a></li></ul>';
+        $block_content = file_get_contents('http://extension.oregonstate.edu/_includes/drupal_help_block.php');
         $block['subject'] = t('Get help with your website');
-        $block['content'] = t($block_content);
+        $block['content'] = $block_content;
         return $block;
     }
   }
