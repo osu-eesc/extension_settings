@@ -1,5 +1,5 @@
 <?php
-// $Id: extension_settings.module
+
 /**
  * Extension Settings
  * Helper module for EESC managed Drupal sites.
@@ -169,51 +169,49 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[8]['info'] = t('Calendar Block (CWS Feed)'); */
     $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
-		$blocks[11]['info'] = t('Extension Neapolitan Block');
-		$blocks[12]['info'] = t('Extension Banners Block');
-		$blocks[13]['info'] = t('Extension Drupal help block');
+    $blocks[11]['info'] = t('Extension Neapolitan Block');
+    $blocks[12]['info'] = t('Extension Banners Block');
+    $blocks[13]['info'] = t('Extension Drupal help block');
     return $blocks;
-  } else if ($op == 'view') {
+  } 
+  elseif ($op == 'view') {
     $block = array();
     switch ($delta) {
       case 0:
         $ggai_output = '
-                    <div id="ggai-block" class="ggai-block">
-					            <div class="ggai-block-header"></div>
-					            <div class="wm_sun">
-					              <ul>
-					                <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
-					                <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
-					                <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
-					                <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
-					                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
-					              	<ul id="ggai_hidden" style="list-style-type: none; margin-left: 0px; display: none;">
-														<li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
-						                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
-														<li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
-									</ul>
-					              </ul>
-								<p style="margin: 0.5em 0 1em -30px;">
-					              <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;"
-									 onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'40px'."'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'30px'."'".');})">Show more »</a>
-								</p>
-					            </div>
-					          </div>
-					<!--[if lte IE 8]>
-					<style type="text/css">
-					#ggai_hidden_link
-					{
-						margin-left: 30px;
-					}
-					#ggai_hidden
-					{
-						margin-top: 6px;
-					}
-					#ggai-block {
-						padding-bottom: 0px;
-					}
-					</style>
-					<![endif]-->';
+          <div id="ggai-block" class="ggai-block">
+            <div class="ggai-block-header"></div>
+            <div class="wm_sun">
+              <ul>
+                <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
+                <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
+                <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
+                <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
+                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
+                <ul id="ggai_hidden" style="list-style-type: none; margin-left: 0px; display: none;">
+                  <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
+                  <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
+                  <li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+                  </ul>
+                </ul>
+                <p style="margin: 0.5em 0 1em -30px;">
+                  <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;" onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'40px'."'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'30px'."'".');})">Show more »</a>
+                </p>
+                  </div>
+            </div>
+            <!--[if lte IE 8]>
+            <style type="text/css">
+            #ggai_hidden_link {
+              margin-left: 30px;
+            }
+            #ggai_hidden {
+              margin-top: 6px;
+            }
+            #ggai-block {
+              padding-bottom: 0px;
+            }
+            </style>
+            <![endif]-->';
         $block['subject'] = t('');
         $block['content'] = t($ggai_output);
         return $block;
@@ -232,7 +230,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $calendar_output .= $xml_path;
           $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
         }
-        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+        for ($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++) {
           unset($event);
           $event = $xml->channel->item[$i];
           $event_title = $event->title;
@@ -261,9 +259,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+          } 
+          elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } else {
+          } 
+          else {
             $event['date'] .= date('g:ia', $event['start']);
           }
           $event['date'] .= '</span></span>';
@@ -275,7 +275,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } else {
+            } 
+            else {
               $event['date'] .= date('g:ia', $event['end']);
             }
             $event['date'] .= '</span></span>';
@@ -321,7 +322,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $calendar_output .= $xml_path;
           $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
         }
-        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+        for ($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++) {
           unset($event);
           $event = $xml->channel->item[$i];
           $event_title = $event->title;
@@ -350,9 +351,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+          } 
+          elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } else {
+          } 
+          else {
             $event['date'] .= date('g:ia', $event['start']);
           }
           $event['date'] .= '</span></span>';
@@ -364,7 +367,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } else {
+            } 
+            else {
               $event['date'] .= date('g:ia', $event['end']);
             }
             $event['date'] .= '</span></span>';
@@ -410,7 +414,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $calendar_output .= $xml_path;
           $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
         }
-        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+        for ($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++) {
           unset($event);
           $event = $xml->channel->item[$i];
           $event_title = $event->title;
@@ -439,9 +443,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+          } 
+          elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } else {
+          } 
+          else {
             $event['date'] .= date('g:ia', $event['start']);
           }
           $event['date'] .= '</span></span>';
@@ -453,7 +459,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } else {
+            } 
+            else {
               $event['date'] .= date('g:ia', $event['end']);
             }
             $event['date'] .= '</span></span>';
@@ -499,7 +506,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $calendar_output .= $xml_path;
           $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
         }
-        for($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++){
+        for ($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++) {
           unset($event);
           $event = $xml->channel->item[$i];
           $event_title = $event->title;
@@ -528,9 +535,11 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } elseif ($event['allday'] == 1 && $event['newday'] == 1) {
+          } 
+          elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } else {
+          } 
+          else {
             $event['date'] .= date('g:ia', $event['start']);
           }
           $event['date'] .= '</span></span>';
@@ -542,7 +551,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } else {
+            } 
+            else {
               $event['date'] .= date('g:ia', $event['end']);
             }
             $event['date'] .= '</span></span>';
@@ -613,7 +623,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             default:
               $header_top_menu_items = array(
                 '0' => array(
-                  'title' => 'Outreach & Engagement',
+                  'title' => 'Outreach &amp; Engagement',
                   'href' => 'http://outreach.oregonstate.edu',
                 ),
                 '1' => array(
@@ -657,79 +667,77 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['subject'] = t('');
         $block['content'] = extension_settings_globalblock_content('2');
         return $block;
-			case 11:
-				$neapolitan_output = '<div style="width: 580px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 170px; float: left;">
-				<div style="height: 110px;">
-				<a style="display: block; width: 106px; margin-left: 0;" href="http://oregonprogress.oregonstate.edu/" title="Oregon&#39;s Agricultural Progress">
-				<img src="http://extension.oregonstate.edu/_includes/images/OAP_latest_thumb.jpg" width="81" height="106"/>
-				</a>
-				</div>
-				<div style="width: 150px; margin-left: 0; line-height: 16px; font-size: 12px;">
-				<b>Oregon&#39;s Agricultural Progress</b><br/>
-				<span style="font-size: 11px;">
-				The research magazine for Oregon State University Agricultural Experiment Station
-				</span>
-				</div>
-				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 190px; float: left;">
-				<div style="height: 98px; margin-top: 12px;">
-				<a style="display: block; width: 132px; margin: auto;" href="';
-				$neapolitan_output .= (module_exists('extension_ask_expert') == TRUE)? 'ask-an-expert' : 'http://extension.oregonstate.edu/extension-ask-an-expert';
-				$neapolitan_output .= '" title="Oregon&#39;s Agricultural Progress">
-				<img src="/sites/default/modules/extension_ask_expert/theme/ask-an-expert.png" width="132" height="89"/>
-				</a>
-				</div>
-				<div style="width: 150px; margin: auto; line-height: 16px; font-size: 12px;">
-				<b>Ask an Expert</b><br/>
-				<span style="font-size: 11px;">
-				Addressing real-life questions with research-based answers... Ask an Expert at Oregon State University.
-				</span>
-				</div>
-				</div>
-				<div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 150px; float: left;">
-				<div style="height: 110px;">
-				<a style="display: block; width: 118px; margin: auto;" href="http://extension.oregonstate.edu/catalog/" title="Publications">
-				<img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102"/>
-				</a>
-				</div>
-				<div style="width: 150px; margin-left: 10px; line-height: 16px; font-size: 12px;">
-				<b>Publications</b><br/>
-				<span style="font-size: 11px;">
-				OSU Extension&#39;s Publications and Multimedia Catalog.
-				</span>
-				</div>
-				</div>
-				<div style="clear: both; height: 10px; width: 1px;"></div>';
-	      $block['subject'] = t('');
-	      $block['content'] = $neapolitan_output;
-	      return $block;
-	    case 12:
-	      $banner_content = '';
-	      $empty_banners = array(
-	        '1' => array(
-	          'display' => 0,
-	        ),
-	        '2' => array(
-	          'display' => 0,
-	        ),
-	        '3' => array(
-	          'display' => 0,
-	        ),
-	      );
-	      $banners = variable_get('extension_settings_banners', $empty_banners);
-	      if ($banners['1']['display'] == 1) {
-	        $banner[$banners['1']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/ten-tips"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/ten-tips-tough-times.png" alt="Ten tips for tough times" /></a></div>';
-	      }
-	      if ($banners['2']['display'] == 1) {
-	        $banner[$banners['2']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/emergency/natural-disasters"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/happen-to-you.png" alt="It could happen to you" /></a></div>';
-	      }
-	      if ($banners['3']['display'] == 1) {
-	        $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="http://juniper.oregonstate.edu/tough-times/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" alt="Tough times in the woods" /></a></div>';
-	      }
-	      ksort($banner);
-	      if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1) {
-	        $banner_content = '<div class="emergency-banners-wrapper">' . implode('', $banner) . '</div>';
+      case 11:
+        $neapolitan_output = '<div style="width: 580px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
+        <div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 170px; float: left;">
+        <div style="height: 110px;">
+          <a style="display: block; width: 106px; margin-left: 0;" href="http://oregonprogress.oregonstate.edu/" title="Oregon&#39;s Agricultural Progress">
+          <img src="http://extension.oregonstate.edu/_includes/images/OAP_latest_thumb.jpg" width="81" height="106" alt="OAP cover image"/>
+          </a>
+          </div>
+          <div style="width: 150px; margin-left: 0; line-height: 16px; font-size: 12px;">
+          <strong>Oregon&#39;s Agricultural Progress</strong><br/>
+          <span style="font-size: 11px;">
+            The research magazine for Oregon State University Agricultural Experiment Station
+          </span>
+          </div>
+        </div>
+        <div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 190px; float: left;">
+          <div style="height: 98px; margin-top: 12px;">
+            <a style="display: block; width: 132px; margin: auto;" href="http://extension.oregonstate.edu/ask-an-expert" title="Ask An Expert">
+              <img src="http://extension.oregonstate.edu/_includes/images/ask-an-expert.png" width="132" height="89" alt="Ask An Expert image" />
+            </a>
+          </div>
+          <div style="width: 150px; margin: auto; line-height: 16px; font-size: 12px;">
+            <strong>Ask an Expert</strong><br/>
+            <span style="font-size: 11px;">
+              Addressing real-life questions with research-based answers... Ask an Expert at Oregon State University.
+            </span>
+          </div>
+        </div>
+        <div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 150px; float: left;">
+          <div style="height: 110px;">
+            <a style="display: block; width: 118px; margin: auto;" href="http://extension.oregonstate.edu/catalog/" title="Publications">
+              <img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102" alt="Extension Publications image"/>
+            </a>
+          </div>
+          <div style="width: 150px; margin-left: 10px; line-height: 16px; font-size: 12px;">
+            <strong>Publications</strong><br/>
+            <span style="font-size: 11px;">
+              OSU Extension&#39;s Publications and Multimedia Catalog.
+            </span>
+          </div>
+        </div>
+        <div style="clear: both; height: 10px; width: 1px;"></div>';
+        $block['subject'] = t('');
+        $block['content'] = $neapolitan_output;
+        return $block;
+      case 12:
+        $banner_content = '';
+        $empty_banners = array(
+          '1' => array(
+            'display' => 0,
+            ),
+          '2' => array(
+            'display' => 0,
+            ),
+          '3' => array(
+            'display' => 0,
+            ),
+          );
+        $banners = variable_get('extension_settings_banners', $empty_banners);
+        if ($banners['1']['display'] == 1) {
+          $banner[$banners['1']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/ten-tips"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/ten-tips-tough-times.png" alt="Ten tips for tough times" /></a></div>';
+        }
+        if ($banners['2']['display'] == 1) {
+          $banner[$banners['2']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/emergency/natural-disasters"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/happen-to-you.png" alt="It could happen to you" /></a></div>';
+        }
+        if ($banners['3']['display'] == 1) {
+          $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="http://juniper.oregonstate.edu/tough-times/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" alt="Tough times in the woods" /></a></div>';
+        }
+        ksort($banner);
+        if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1) {
+          $banner_content = '<div class="emergency-banners-wrapper">' . implode('', $banner) . '</div>';
         }
         $block['subject'] = t('');
         $block['content'] = $banner_content;
@@ -758,7 +766,7 @@ function extension_settings_globalblock_content($globalblock_id) {
         $emergency_content .= '</div>';
       }
     }
-    if(isset($emergency_content)) $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . $emergency_content . '</div></div>';
+    if (isset($emergency_content)) $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . $emergency_content . '</div></div>';
   }
   if ($globalblock_id == '2') {
     if ($globaldata) {
@@ -775,20 +783,21 @@ function extension_settings_globalblock_content($globalblock_id) {
 /**
  * function to remove all given values from an array
 */
-function extension_settings_remove_item_by_value($array, $val = '', $preserve_keys = true) {
-  if (empty($array) || !is_array($array)) return false;
+function extension_settings_remove_item_by_value($array, $val = '', $preserve_keys = TRUE) {
+  if (empty($array) || !is_array($array)) return FALSE;
   if (!in_array($val, $array)) return $array;
-  foreach($array as $key => $value) {
+  foreach ($array as $key => $value) {
     if ($value == $val) unset($array[$key]);
   }
-  return ($preserve_keys === true) ? $array : array_values($array);
+  return ($preserve_keys === TRUE) ? $array : array_values($array);
 }
 
 function extension_settings_global_block_1_code() {
   $global_content = variable_get('extension_settings_global_content_1', '');
   if ($global_content == '') {
     return NULL;
-  } else {  
+  } 
+  else {  
     foreach (array_keys($global_content) as $key) {
       $global_content[$key]['regions'] = extension_settings_remove_item_by_value($global_content[$key]['regions'], '0');
     }
@@ -801,7 +810,8 @@ function extension_settings_global_block_2_code() {
   $global_content = variable_get('extension_settings_global_content_2', '');
   if ($global_content == '') {
     return NULL;
-  } else {
+  } 
+  else {
     $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
     $xml_data['regions'] = implode(',', $global_content['regions']);
     $xml_data['content'] = $global_content['content'];
@@ -835,13 +845,13 @@ function extension_settings_calendar_event() {
   print $data;
 }
 
-function extension_settings_get_string_between($string, $start, $end){
-  $string = " ".$string;
-  $ini = strpos($string,$start);
+function extension_settings_get_string_between($string, $start, $end) {
+  $string = " ". $string;
+  $ini = strpos($string, $start);
   if ($ini == 0) return "";
   $ini += strlen($start);
-  $len = strpos($string,$end,$ini) - $ini;
-  return substr($string,$ini,$len);
+  $len = strpos($string, $end, $ini) - $ini;
+  return substr($string, $ini, $len);
 }
 
 /**
@@ -895,9 +905,9 @@ function extension_settings_field_formatter_info() {
 function theme_extension_settings_formatter_comma($element) {
  $i=0;
  $items=array();
- while(isset($element[$i])){
+ while (isset($element[$i])) {
   $item=theme_text_formatter_default($element[$i]);
-  if(!empty($item)){
+  if (!empty($item)) {
    $items[]=$item;
   }
   $i++;
@@ -915,7 +925,7 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       unset($form['sitesearch']);
     break;
     case '_linkit_form':
-      $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <b>OR</b> select Browse Server to upload or select a file.';
+      $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <strong>OR</strong> select Browse Server to upload or select a file.';
     break;
   }
   if (strstr($form['form_id']['#value'], 'node')) {

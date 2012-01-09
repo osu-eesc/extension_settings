@@ -1,5 +1,9 @@
 <?php
-// $Id: extension_settings.install
+
+/**
+ * @file
+ * extension_settings.install
+*/
 
 /**
 * Implementation of hook_install()
@@ -32,7 +36,7 @@ function extension_settings_install() {
 function extension_settings_uninstall() {
   // Remove the module from the system table
   db_query("DELETE FROM {system} WHERE `name` = 'extension_settings'");
-	db_query("DELETE FROM {variable} WHERE `name` LIKE 'extension_settings_%'");
+  db_query("DELETE FROM {variable} WHERE `name` LIKE 'extension_settings_%'");
 }
 
 /**

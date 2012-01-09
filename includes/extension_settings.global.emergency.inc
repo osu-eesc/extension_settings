@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * extension_settings.global.emergency.inc
+*/
+
 /*
  * Global Content form for Extension.
  */
@@ -111,7 +116,8 @@ function extension_settings_global_emergency_remove() {
     $form['actions']['cancel'] = array(
       '#value' => '<a href="' . base_path() . 'admin/settings/extension/global">Cancel</a>',
     );
-  } else {
+  } 
+  else {
     $form = '';
   }
   return $form;
@@ -124,7 +130,7 @@ function extension_settings_global_emergency_remove_submit(&$form, &$form_state)
     unset($notifications[$key]);
     $notifications = array_merge($notifications);
     variable_set('extension_settings_global_content_1', $notifications);
-    drupal_set_message($message);
+    drupal_set_message(filter_xss($message));
     $form['#redirect'] = 'admin/settings/extension/global';
 }
 

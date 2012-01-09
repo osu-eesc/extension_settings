@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @file
+ * extension_settings.global.inc
+*/
 /*
  * Global Content form for Extension.
  */
@@ -53,7 +56,7 @@ function extension_settings_global_content() {
  */
 function extension_settings_global_content_validate($form, &$form_state) {
   if ($form_state['values']['select_region'] == 1) {
-    if($form_state['values']['regions']['1'] == 0 && $form_state['values']['regions']['2'] == 0 && $form_state['values']['regions']['3'] == 0 && $form_state['values']['regions']['4'] == 0 && $form_state['values']['regions']['5'] == 0 && $form_state['values']['regions']['6'] == 0) {
+    if ($form_state['values']['regions']['1'] == 0 && $form_state['values']['regions']['2'] == 0 && $form_state['values']['regions']['3'] == 0 && $form_state['values']['regions']['4'] == 0 && $form_state['values']['regions']['5'] == 0 && $form_state['values']['regions']['6'] == 0) {
       form_set_error('', t('Please select at least one region.'));
     }
   }

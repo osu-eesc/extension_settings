@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @file
+ * extension_settings.admin.inc
+*/
+ 
 /*
  * Admin Settings form for Extension.
  */
@@ -27,13 +31,13 @@ function extension_settings_admin_settings() {
     '#required' => TRUE
   );
 
-  $siteTypes = array('0' => t('Extension Website'), '1' => t('Extension County/Program Website'), '2' => t('Branch Experiment Station Website'), '3' => t('Combined Extension & Experiment Station Center Website'), '4' => t('Other Website') );
+  $site_types = array('0' => t('Extension Website'), '1' => t('Extension County/Program Website'), '2' => t('Branch Experiment Station Website'), '3' => t('Combined Extension & Experiment Station Center Website'), '4' => t('Other Website') );
 
   $form['configuration_settings']['extension_settings_site_type'] = array(
     '#type' => 'radios',
     '#title' => t('Site Type'),
     '#default_value' => variable_get('extension_settings_site_type', '1'), 
-    '#options' => $siteTypes,
+    '#options' => $site_types,
     '#required' => TRUE
     );
     

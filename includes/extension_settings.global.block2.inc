@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * extension_settings.block2.inc
+*/
+
 /*
  * Global Content form for Extension.
  */

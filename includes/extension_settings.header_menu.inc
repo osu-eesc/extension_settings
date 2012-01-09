@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * extension_settings.header.inc
+*/
 
 /*
  * Global Content form for Extension.
@@ -43,7 +47,7 @@ function extension_settings_header_menu() {
       default:
         $default_values = array(
           '0' => array(
-            'title' => 'Outreach & Engagement',
+            'title' => 'Outreach &amp; Engagement',
             'href' => 'http://outreach.oregonstate.edu',
           ),
           '1' => array(
@@ -68,14 +72,14 @@ function extension_settings_header_menu() {
   foreach (array_keys($default_values) as $key) {
     $form[$key] = array();
     $form[$key]['title' . $key] = array(
-      '#value' =>'<div class="menu-title">' . $default_values[$key]['title'] . '</div>',
+      '#value' => '<div class="menu-title">' . $default_values[$key]['title'] . '</div>',
     );
     $form[$key]['title' . $key . '-hidden'] = array(
       '#type' => 'hidden',
       '#default_value' => $default_values[$key]['title'],
     );
     $form[$key]['href' . $key] = array(
-      '#value' =>'<div class="menu-href">' . $default_values[$key]['href'] . '</div>',
+      '#value' => '<div class="menu-href">' . $default_values[$key]['href'] . '</div>',
 
     );
     $form[$key]['href' . $key . '-hidden'] = array(
@@ -91,7 +95,7 @@ function extension_settings_header_menu() {
       ),
     );
     $form[$key]['remove' . $key] = array(
-      '#value' =>'<div class="menu-remove"><a href="' . base_path() . 'admin/settings/extension/header-menu/remove/' . $key . '">' . t('remove') . '</a></div>',
+      '#value' => '<div class="menu-remove"><a href="' . base_path() . 'admin/settings/extension/header-menu/remove/' . $key . '">' . t('remove') . '</a></div>',
     );
   }
   $form['add'] = array(
@@ -113,7 +117,7 @@ function extension_settings_header_menu() {
     '#title' => t('URL'),
   );
   $form['help_text'] = array(
-    '#value' =>'<div class="help-text">' . t('Enter the links for the header top menu as well as the order in which they will display.') . '</div>'
+    '#value' => '<div class="help-text">' . t('Enter the links for the header top menu as well as the order in which they will display.') . '</div>'
   );
   $form['submit'] = array(
     '#type' => 'submit',
@@ -163,7 +167,8 @@ function extension_settings_header_menu_remove() {
     $form['actions']['cancel'] = array(
       '#value' => '<a href="' . base_path() . 'admin/settings/extension/header-menu">Cancel</a>',
     );
-  } else {
+  } 
+  else {
     $form = '';
   }
   return $form;
@@ -176,7 +181,7 @@ function extension_settings_header_menu_remove_submit(&$form, &$form_state) {
     unset($menu_items[$key]);
     $menu_items = array_merge($menu_items);
     variable_set('extension_settings_header_menu', $menu_items);
-    drupal_set_message($message);
+    drupal_set_message(filter_xss($message));
     $form['#redirect'] = 'admin/settings/extension/header-menu';
 }
 
