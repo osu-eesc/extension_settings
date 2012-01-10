@@ -38,20 +38,3 @@ function extension_settings_uninstall() {
   db_query("DELETE FROM {system} WHERE `name` = 'extension_settings'");
   db_query("DELETE FROM {variable} WHERE `name` LIKE 'extension_settings_%'");
 }
-
-/**
- * Implementation of hook_update_N().
- */
-function extension_settings_update_6001() {      
-  // make sure that the module is enabled
- /*$install_module = 'osu_search';
-  $result = db_query("UPDATE {system} SET `status` = %d WHERE `type` = 'module' AND `name` = '%s'", 1, $install_module);
-  return array();
-  
-  // set variablesfor osu_search 
-  variable_set('osu_search_other_results_page', '1');
-  variable_set('osu_search_collection_title', 'NO Extension & Ag Experiment Station websites');  
-  variable_set('osu_search_collection_id', 'Extension');
-  variable_set('osu_search_collection_as_primary', '0');
-  variable_set('osu_search_hide_osu', '1'); */
-}

@@ -918,8 +918,19 @@ function theme_extension_settings_formatter_comma($element) {
 * Implementation of hook_form_alter().
 */
 function extension_settings_form_alter(&$form, $form_state, $form_id) {
+ 
   switch ($form_id) {
     // This is our form ID.
+   
+   case 'osu_search_template_form':
+    //dsm($form);
+    unset($form['search-scope']['#title']);
+    unset($form['search-scope']['#type']);
+    unset($form['submit']['#value']);
+   break;
+   
+ 
+    
     case 'google_cse_searchbox_form':
       // remove form options on the form block
       unset($form['sitesearch']);
@@ -928,6 +939,7 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <strong>OR</strong> select Browse Server to upload or select a file.';
     break;
   }
+  
   if (strstr($form['form_id']['#value'], 'node')) {
     foreach (array_keys($form['menu']['parent']['#options']) as $item) {
       if (strstr($item, 'navigation')) unset($form['menu']['parent']['#options'][$item]);
@@ -935,6 +947,7 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
         if (strstr($item, 'primary-links')) unset($form['menu']['parent']['#options'][$item]);
       }
     }
+    
     if (isset($form['body_field'])) {
       $form['body_field']['teaser_include']['#default_value'] = FALSE;
       $form['body_field']['teaser_include']['#access'] = FALSE;
@@ -942,4 +955,6 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
     $form['revision_information']['#access'] = FALSE;
     $form['author']['#access'] = FALSE;
   }
+  
 }
+
