@@ -226,9 +226,9 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $flag = count($xml->channel->item);
         if ($shortname == '') $flag = 0;
         if ($flag != 0) {
-          $calendar_output .= '<div id="calendar"><a class="rss" href="';
+          $calendar_output .= '<div id="calendar"><a class="rss" title="Click for RSS feed" href="';
           $calendar_output .= $xml_path;
-          $calendar_output .= '"><img src="http://extension.oregonstate.edu/sites/default/files/images/icons/rss_icon.png" width="15" height="15" /></a>';
+          $calendar_output .= '"><img src="http://extension.oregonstate.edu/_includes/images/rss_icon.png" width="15" height="15" alt="rss icon image" /></a>';
         }
         for ($i = 0; $i < count($xml->channel->item) && $i < $disp_num; $i++) {
           unset($event);
@@ -743,10 +743,12 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = $banner_content;
         return $block;
       case 13:
+      if (user_access('authenticated')) {
         $block_content = file_get_contents('http://extension.oregonstate.edu/_includes/drupal_help_block.php');
         $block['subject'] = t('Get help with your website');
         $block['content'] = $block_content;
         return $block;
+      }
     }
   }
 }
