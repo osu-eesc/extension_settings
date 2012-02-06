@@ -354,6 +354,10 @@
   margin: 30px;
 }
 
+#extension-calendar-lightbox p {
+  line-height: 140%;
+}
+
 #extension-calendar-lightbox .column-left {
   float: left;
   width: 150px;
