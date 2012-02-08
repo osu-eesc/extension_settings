@@ -943,12 +943,12 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
   }
   
   if (strstr($form['form_id']['#value'], 'node')) {
-    foreach (array_keys($form['menu']['parent']['#options']) as $item) {
+    /*foreach (array_keys($form['menu']['parent']['#options']) as $item) {
       if (strstr($item, 'navigation')) unset($form['menu']['parent']['#options'][$item]);
       if (variable_get('extension_settings_site_type', 0) != 4) {
         if (strstr($item, 'primary-links')) unset($form['menu']['parent']['#options'][$item]);
       }
-    }
+    }*/
     
     if (isset($form['body_field'])) {
       $form['body_field']['teaser_include']['#default_value'] = TRUE;
