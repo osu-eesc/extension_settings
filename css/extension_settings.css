@@ -354,7 +354,13 @@
   margin: 30px;
 }
 
-#extension-calendar-lightbox p {
+#extension-calendar-lightbox .content_box {
+  width: 100%;
+  overflow: hidden;
+}
+
+#extension-calendar-lightbox p,
+#extension-calendar-lightbox div {
   line-height: 140%;
 }
 
