@@ -668,7 +668,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = extension_settings_globalblock_content('2');
         return $block;
       case 11:
-      $eXtension_logo = '<img style="display: block; width: 132px; margin: auto;" src="http://extension.oregonstate.edu/_includes/images/ask-an-expert-neo.png" class="ask-expert-logo-image" alt="Ask an Expert logo" width="132" height="90" />';
+      $eXtension_logo = '<img style="display: block; width: 132px; margin: auto;" src="http://extension.oregonstate.edu/_includes/images/ask-an-expert-neo.png" alt="Ask an Expert logo" width="132" height="90" />';
         $neapolitan_output = '<div style="width: 580px; margin: 10px auto 0; padding-bottom: 5px; border-top: 1px dotted #999;"></div>
         <div style="margin: 15px 0; padding: 0 1.5%; border-right: 1px solid #CCC; height: 220px; width: 170px; float: left;">
         <div style="height: 110px;">
