@@ -15,18 +15,10 @@ function extension_settings_admin_settings() {
     '#collapsed' => FALSE
   );
 
-  $form['configuration_settings']['extension_settings_sitename'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Site Name'),
-    '#description' => t('Enter the name of the site.'),
-    '#default_value' => variable_get('extension_settings_sitename', 'OSU Extension Service'),
-    '#required' => TRUE
-  );
-
   $form['configuration_settings']['extension_settings_webmaster_link'] = array(
     '#type' => 'textfield',
-    '#title' => t('Webmaster Link'),
-    '#description' => t('Enter the link for this site\'s webmaster. This is generally in the form of http://extension.oregonstate.edu/employee/firstname-lastname. This needs be a valid link, not an email address.'),
+    '#title' => t('Contact Us Link'),
+    '#description' => t('Enter the link for this site\'s webmaster or site manager. This is generally in the form of http://extension.oregonstate.edu/employee/firstname-lastname. This needs be a valid link, not an email address.'),
     '#default_value' => variable_get('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/extension-webmaster'),
     '#required' => TRUE
   );

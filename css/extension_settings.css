@@ -1,6 +1,7 @@
 #block-extension_settings-5 {
   width: auto !important;
-  padding-left: 130px;
+  padding-left: 135px;
+  width: 520px;
 }
 #block-extension_settings-5 .inner .content,
 #block-extension_settings-5 .inner .content a {
@@ -346,6 +347,7 @@
 #block-extension_settings-3 .view-more,
 #block-extension_settings-4 .view-more {
   float: right;
+  margin: 1em 0;
 }
 
 #extension-calendar-lightbox {
@@ -383,7 +385,8 @@
   margin-top: 5px;
 }
 
-#block-extension_settings-13 ul {
+#block-extension_settings-13 ul,
+#block-extension_settings-6 ul {
   margin-bottom: 10px;
 }
 
@@ -406,4 +409,9 @@ form#extension-settings-header-menu .add-new #edit-title-wrapper {
 
 form#extension-settings-header-menu .add-new #edit-href-wrapper {
   margin-left: 50%
+}
+
+/* disable views/edit links */
+.block div.view div.views-admin-links {
+    display: none !important;
 }

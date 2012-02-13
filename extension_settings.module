@@ -39,6 +39,7 @@ function extension_settings_perm() {
   $extension_permissions[] = 'administer extension settings';
   $extension_permissions[] = 'administer extension global content';
   $extension_permissions[] = 'administer extension banners';
+  $extension_permissions[] = 'access extension settings blocks';
   return $extension_permissions;
 }
 /**
@@ -164,8 +165,8 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[3]['info'] = t('Calendar Block 3 (CWS Feed)');
     $blocks[4]['info'] = t('Calendar Block 4 (CWS Feed)');
     $blocks[5]['info'] = t('Extension Header Top Menu');
-/*    $blocks[6]['info'] = t('Badge - Health and Wellness');
-    $blocks[7]['info'] = t('Badge - Small Farms');
+    $blocks[6]['info'] = t('OSU Calendar');
+    /*   $blocks[7]['info'] = t('Badge - Small Farms');
     $blocks[8]['info'] = t('Calendar Block (CWS Feed)'); */
     $blocks[9]['info'] = t('Emergency Information Block');
     $blocks[10]['info'] = t('Global Content Block 2');
@@ -645,12 +646,32 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['subject'] = t('');
         $block['content'] = $block_content;
         return $block;
-/*      case 6:
-        $badge_content = '<a title="Oregon State University Extension Service: Health &amp; Wellness" href="http://extension.oregonstate.edu/node/308"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg308.gif" width="190" height="52" alt="Oregon State University Extension Service: Health &amp; Wellness badge image" /></a>';
-        $block['subject'] = t('');
-        $block['content'] = t($badge_content);
-        return $block;
-      case 7:
+        case 6:
+         if (user_access('access extension settings blocks')) {
+          $calendar_link = ''; 
+          if ( (variable_get('extension_settings_calendar1_shortname', '')) || (variable_get('extension_settings_calendar2_shortname', '')) || (variable_get('extension_settings_calendar3_shortname', '')) || (variable_get('extension_settings_calendar4_shortname', '')) ) {
+            $calendar_link .= '<ul>';
+          }
+          if (variable_get('extension_settings_calendar1_shortname', ''))  {
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar1_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar1_shortname', '')) . ' Calendar</a></li>'; 
+          }
+          if (variable_get('extension_settings_calendar2_shortname', ''))  {
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar2_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar2_shortname', '')) . ' Calendar</a></li>'; 
+          }
+          if (variable_get('extension_settings_calendar3_shortname', ''))  {
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar3_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar3_shortname', '')) . ' Calendar</a></li>'; 
+          }
+          if (variable_get('extension_settings_calendar4_shortname', ''))  {
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar4_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar4_shortname', '')) . ' Calendar</a></li>'; 
+          }
+          if ( (variable_get('extension_settings_calendar1_shortname', '')) || (variable_get('extension_settings_calendar2_shortname', '')) || (variable_get('extension_settings_calendar3_shortname', '')) || (variable_get('extension_settings_calendar4_shortname', '')) ) {
+            $calendar_link .= '</ul>';
+          }
+          $block['subject'] = t('OSU Calendar');
+          $block['content'] = t($calendar_link);
+          return $block;
+        }
+/*      case 7:
         $badge_content = '<a title="Oregon State University Extension Service: Small Farms" href="http://extension.oregonstate.edu/node/304"><img src="http://extension.oregonstate.edu/sites/default/themes/extension/images/badges/extbdg304.gif" width="190" height="52" alt="Oregon State University Extension Service: Small Farms badge image" /></a>';
         $block['subject'] = t('');
         $block['content'] = t($badge_content);
@@ -742,7 +763,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['content'] = $banner_content;
         return $block;
       case 13:
-      if (user_access('authenticated')) {
+       if (user_access('access extension settings blocks')) {
         $block_content = file_get_contents('http://extension.oregonstate.edu/_includes/drupal_help_block.php');
         $block['subject'] = t('Get help with your website');
         $block['content'] = $block_content;
