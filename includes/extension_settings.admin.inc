@@ -18,8 +18,8 @@ function extension_settings_admin_settings() {
   $form['configuration_settings']['extension_settings_webmaster_link'] = array(
     '#type' => 'textfield',
     '#title' => t('Contact Us Link'),
-    '#description' => t('Enter the link for this site\'s webmaster or site manager. This is generally in the form of http://extension.oregonstate.edu/employee/firstname-lastname. This needs be a valid link, not an email address.'),
-    '#default_value' => variable_get('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/victor-villegas'),
+    '#description' => t('Enter the link for this site\'s webmaster or site manager. This is generally in the form of http://extension.oregonstate.edu/employee/firstname-lastname, or just http://extension.oregonstate.edu/node/4859. This needs be a valid link, not an email address.'),
+    '#default_value' => variable_get('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/node/4859'),
     '#required' => TRUE
   );
 

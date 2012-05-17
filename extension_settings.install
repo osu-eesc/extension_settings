@@ -14,7 +14,7 @@ function extension_settings_install() {
   variable_set('extension_settings_site_type', '1');
   variable_set('extension_settings_banner_title', '');
   variable_set('extension_settings_banner_link', '');
-  variable_set('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/victor-villegas'); 
+  variable_set('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/node/4859'); 
   
   // set variables for osu_search 
   variable_set('osu_search_other_results_page', '1');
