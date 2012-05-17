@@ -19,15 +19,16 @@ function extension_settings_admin_settings() {
     '#type' => 'textfield',
     '#title' => t('Contact Us Link'),
     '#description' => t('Enter the link for this site\'s webmaster or site manager. This is generally in the form of http://extension.oregonstate.edu/employee/firstname-lastname. This needs be a valid link, not an email address.'),
-    '#default_value' => variable_get('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/extension-webmaster'),
+    '#default_value' => variable_get('extension_settings_webmaster_link', 'http://extension.oregonstate.edu/employee/victor-villegas'),
     '#required' => TRUE
   );
 
-  $site_types = array('0' => t('Extension Website'), '1' => t('Extension County/Program Website'), '2' => t('Branch Experiment Station Website'), '3' => t('Combined Extension & Experiment Station Center Website'), '4' => t('Other Website') );
+  $site_types = array('0' => t('Main Extension Website'), '1' => t('Extension County Website'), '2' => t('Branch Experiment Station Website'), '3' => t('Combined Extension & Experiment Station Center Website'), '4' => t('Other Website'), '5' => t('Extension Program Area Website'), '6' => t('Main Outreach and Engagement Website'), '7' => t('Other Outreach and Engagement Website') );
 
   $form['configuration_settings']['extension_settings_site_type'] = array(
     '#type' => 'radios',
     '#title' => t('Site Type'),
+    '#description' => t('The site type determines which set of primary links to use and the homepage sidebar width.'),
     '#default_value' => variable_get('extension_settings_site_type', '1'), 
     '#options' => $site_types,
     '#required' => TRUE

@@ -184,7 +184,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             <div class="ggai-block-header"></div>
             <div class="wm_sun">
               <ul>
-                <li class="item-1"><span><a href="http://extension.oregonstate.edu/node/320" title="Gardening: Get Good at It.">Gardening</a></span></li>
+                <li class="item-1"><span><a href="http://extension.oregonstate.edu/gardening/" title="Gardening: Get Good at It.">Gardening</a></span></li>
                 <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
                 <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
                 <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
