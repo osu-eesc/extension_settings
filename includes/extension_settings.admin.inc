@@ -131,6 +131,9 @@ function extension_settings_admin_settings() {
       '30' => t('30'),
       '60' => t('60'),
       '90' => t('90'),
+      '120' => t('120'),
+      '150' => t('150'),
+      '180' => t('180'),
     ),
     '#default_value' => variable_get('extension_settings_calendar1_lookahead', '90'),
   );
@@ -179,6 +182,7 @@ function extension_settings_admin_settings() {
       '25' => t('20'),
       '25' => t('25'),
       '30' => t('30'),
+      
     ),
     '#default_value' => variable_get('extension_settings_calendar2_teaser', '15'),
   );
@@ -192,6 +196,9 @@ function extension_settings_admin_settings() {
       '30' => t('30'),
       '60' => t('60'),
       '90' => t('90'),
+      '120' => t('120'),
+      '150' => t('150'),
+      '180' => t('180'),
     ),
     '#default_value' => variable_get('extension_settings_calendar2_lookahead', '90'),
   );
@@ -253,6 +260,9 @@ function extension_settings_admin_settings() {
       '30' => t('30'),
       '60' => t('60'),
       '90' => t('90'),
+      '120' => t('120'),
+      '150' => t('150'),
+      '180' => t('180'),
     ),
     '#default_value' => variable_get('extension_settings_calendar3_lookahead', '90'),
   );
@@ -314,6 +324,9 @@ function extension_settings_admin_settings() {
       '30' => t('30'),
       '60' => t('60'),
       '90' => t('90'),
+      '120' => t('120'),
+      '150' => t('150'),
+      '180' => t('180'),
     ),
     '#default_value' => variable_get('extension_settings_calendar4_lookahead', '90'),
   );
