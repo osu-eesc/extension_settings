@@ -11,6 +11,11 @@
 function extension_settings_init() {
   drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/ggai.css');
   drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/extension_settings.css');
+
+  /* hack to get the search bar in the correct area due to the search module not providing a block! */
+  if (module_exists('osu_search')) {
+    drupal_add_css(drupal_get_path('module', 'extension_settings') .'/css/osu_search_hack.css');
+  }
 }
 /**
  * Implementation of hook_help()
@@ -768,8 +773,18 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         $block['subject'] = t('Get help with your website');
         $block['content'] = $block_content;
         return $block;
-      }
+        }
+
     }
+  }
+}
+
+function extension_settings_preprocess_page(&$vars, $hook) {
+  // cws search form - Create the indexes in our vars array for population by osu_search_get_template_form
+  if (module_exists('osu_search')) {
+    $vars['osu_search_form'] = NULL;
+    $vars['osu_search_image_submit_form'] = NULL;
+    osu_search_get_template_form($vars);
   }
 }
 
