@@ -30,6 +30,15 @@ function extension_settings_install() {
 }
 
 /**
+* Updates the header and footer defaults.
+*/
+function extension_settings_update_6001() { 
+  //turn off js optimization otherwise update to theme creates formatting issues
+  variable_set('preprocess_js', 0) ;
+}
+
+
+/**
 * Implementation of hook_uninstall()
 */
 function extension_settings_uninstall() {

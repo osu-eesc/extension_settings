@@ -1004,8 +1004,9 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       $form['body_field']['teaser_include']['#default_value'] = TRUE;
       $form['body_field']['teaser_include']['#access'] = FALSE;
     }
-    $form['revision_information']['#access'] = FALSE;
-    $form['author']['#access'] = FALSE;
+    // these are causing problems, so lets not change defaults
+    // $form['revision_information']['#access'] = FALSE;
+    // $form['author']['#access'] = FALSE;
   }
   
 }
