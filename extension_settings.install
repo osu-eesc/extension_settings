@@ -35,6 +35,18 @@ function extension_settings_install() {
 function extension_settings_update_6001() { 
   //turn off js optimization otherwise update to theme creates formatting issues
   variable_set('preprocess_js', 0) ;
+
+  // Install media modules.
+  $modules[] = 'media_vimeo';
+  $modules[] = 'media_youtube';
+    
+  foreach ($modules as $module) {
+    $module_name = $files[$module]->info['name'];
+    if (!module_exists($module)) {
+      drupal_install_modules(array($module));
+      drupal_set_message(check_plain('Installed ' . $module .  ' module'));
+    }
+  }
 }
 
 
