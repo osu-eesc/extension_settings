@@ -193,7 +193,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
                 <li class="item-7"><span><a href="http://extension.oregonstate.edu/node/304" title="Small Farms: Get Good at It.">Small Farms</a></span></li>
                 <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
                 <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
-                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">Family &amp; Youth</a></span></li>
+                <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">4-H, Family &amp; Youth</a></span></li>
                 <ul id="ggai_hidden" style="list-style-type: none; margin-left: 0px; display: none;">
                   <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
                   <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
