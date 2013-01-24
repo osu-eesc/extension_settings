@@ -14,9 +14,9 @@ function extension_settings_banners() {
     $default_values['1']['display'] = 0;
     $default_values['1']['weight'] = 0;
     $default_values['2']['display'] = 0;
-    $default_values['2']['weight'] = 1;
-    $default_values['3']['display'] = 0;
-    $default_values['3']['weight'] = 2;
+    // $default_values['2']['weight'] = 1;
+    // $default_values['3']['display'] = 0;
+    // $default_values['3']['weight'] = 2;
   }
 
   $form = array(
@@ -65,29 +65,29 @@ function extension_settings_banners() {
       'class' => 'weight',
     ),
   );
-  $form['3'] = array();
-  $form['3']['display3'] = array(
-    '#type' => 'checkbox',
-    '#title' => t(''),
-    '#default_value' => $default_values['3']['display'],
-    '#attributes' => array(
-    ),
-  );
-  $form['3']['banner3'] = array(
-    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" /></div>',
-  );
-  $form['3']['weight3'] = array(
-    '#type' => 'weight',
-    '#title' => t('Weight'),
-    '#default_value' => $default_values['3']['weight'],
-    '#description' => t(''),
-    '#attributes' => array(
-      'class' => 'weight',
-    ),
-  );
-  $form['help_text'] = array(
-    '#value' => '<div class="help-text">' . t('Select which banners will display on the site as well as the order in which they will display.') . '</div>'
-  );
+  // $form['3'] = array();
+  // $form['3']['display3'] = array(
+  //   '#type' => 'checkbox',
+  //   '#title' => t(''),
+  //   '#default_value' => $default_values['3']['display'],
+  //   '#attributes' => array(
+  //   ),
+  // );
+  // $form['3']['banner3'] = array(
+  //   '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" /></div>',
+  // );
+  // $form['3']['weight3'] = array(
+  //   '#type' => 'weight',
+  //   '#title' => t('Weight'),
+  //   '#default_value' => $default_values['3']['weight'],
+  //   '#description' => t(''),
+  //   '#attributes' => array(
+  //     'class' => 'weight',
+  //   ),
+  // );
+  // $form['help_text'] = array(
+  //   '#value' => '<div class="help-text">' . t('Select which banners will display on the site as well as the order in which they will display.') . '</div>'
+  // );
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',
