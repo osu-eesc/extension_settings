@@ -758,7 +758,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $banner[$banners['2']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/emergency/natural-disasters"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/happen-to-you.png" alt="It could happen to you" /></a></div>';
         }
         if ($banners['3']['display'] == 1) {
-          $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="http://juniper.oregonstate.edu/tough-times/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/tough-times-woods.png" alt="Tough times in the woods" /></a></div>';
+          $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="https://pne.oregonstate.edu/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/pne-banner.png" alt="Professional and Noncredit Education" /></a></div>';
         }
         ksort($banner);
         if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1) {
