@@ -179,7 +179,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
     $blocks[12]['info'] = t('Extension Banners Block');
     $blocks[13]['info'] = t('Extension Drupal help block');
     return $blocks;
-  } 
+  }
   elseif ($op == 'view') {
     $block = array();
     switch ($delta) {
@@ -194,30 +194,12 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
                 <li class="item-3"><span><a href="http://extension.oregonstate.edu/node/305" title="Food Preservation: Get Good at It.">Food Preservation</a></span></li>
                 <li class="item-4"><span><a href="http://extension.oregonstate.edu/node/306" title="Food &amp; Nutrition: Get Good at It.">Food &amp; Nutrition</a></span></li>
                 <li class="item-5"><span><a href="http://extension.oregonstate.edu/node/307" title="Family &amp; Youth: Get Good at It.">4-H, Family &amp; Youth</a></span></li>
-                <ul id="ggai_hidden" style="list-style-type: none; margin-left: 0px; display: none;">
-                  <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
-                  <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
-                  <li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
-                  </ul>
-                </ul>
-                <p style="margin: 0.5em 0 1em -30px;">
-                  <a id="ggai_hidden_link" style="color: #E48101; font-weight: normal; 	font-family: Arial, Helvetica, Verdana, '."'Bitstream Vera Sans'".', sans-serif; cursor: pointer;" onclick="javascript: ($('."'#ggai_hidden'".').css('."'display'".') == '."'none'".')? $('."'#ggai_hidden'".').slideDown('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show less »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'40px'."'".');}) : $('."'#ggai_hidden'".').slideUp('."'fast'".', function(){$('."'#ggai_hidden_link'".').html('."'Show more »'".'); $('."'".'.wm_sun'."'".').css('."'".'padding-bottom'."'".', '."'".'30px'."'".');})">Show more »</a>
-                </p>
-                  </div>
+                <li class="item-6"><span><a href="http://extension.oregonstate.edu/node/308" title="Health &amp; Wellness: Get Good at It.">Health &amp; Wellness</a></span></li>
+                <li class="item-8"><span><a href="http://extension.oregonstate.edu/node/4407" title="Environment: Get Good at It.">Environment</a></span></li>
+                <li class="item-2"><span><a href="http://extension.oregonstate.edu/node/3333" title="Trees &amp; Woodlands: Get Good at It.">Trees &amp; Woodlands</a></span></li>
+              </ul>
             </div>
-            <!--[if lte IE 8]>
-            <style type="text/css">
-            #ggai_hidden_link {
-              margin-left: 30px;
-            }
-            #ggai_hidden {
-              margin-top: 6px;
-            }
-            #ggai-block {
-              padding-bottom: 0px;
-            }
-            </style>
-            <![endif]-->';
+          </div>';
         $block['subject'] = t('');
         $block['content'] = t($ggai_output);
         return $block;
@@ -265,10 +247,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } 
+          }
           elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } 
+          }
           else {
             $event['date'] .= date('g:ia', $event['start']);
           }
@@ -281,7 +263,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } 
+            }
             else {
               $event['date'] .= date('g:ia', $event['end']);
             }
@@ -357,10 +339,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } 
+          }
           elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } 
+          }
           else {
             $event['date'] .= date('g:ia', $event['start']);
           }
@@ -373,7 +355,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } 
+            }
             else {
               $event['date'] .= date('g:ia', $event['end']);
             }
@@ -449,10 +431,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } 
+          }
           elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } 
+          }
           else {
             $event['date'] .= date('g:ia', $event['start']);
           }
@@ -465,7 +447,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } 
+            }
             else {
               $event['date'] .= date('g:ia', $event['end']);
             }
@@ -541,10 +523,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $event['date'] .= date('M. d, Y', $event['start']) . ' <span class="time">';
           if (!isset($event['end']) && $event['newday'] == 0) {
             $event['date'] .= '(all day)';
-          } 
+          }
           elseif ($event['allday'] == 1 && $event['newday'] == 1) {
             $event['date'] .= '';
-          } 
+          }
           else {
             $event['date'] .= date('g:ia', $event['start']);
           }
@@ -557,7 +539,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
             $event['date'] .= ' <span class="time">';
             if ($event['newday'] == 1 && $event['allday'] == 1) {
               $event['date'] .= '(all day)';
-            } 
+            }
             else {
               $event['date'] .= date('g:ia', $event['end']);
             }
@@ -647,27 +629,27 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         foreach (array_keys($header_top_menu_items) as $key) {
           $header_top_menu_part[$key] = '<a href="' . $header_top_menu_items[$key]['href'] . '" title="' . $header_top_menu_items[$key]['title'] . '">' . $header_top_menu_items[$key]['title'] . '</a>';
         }
-        $block_content = implode('&nbsp;&nbsp;|&nbsp;&nbsp;', $header_top_menu_part);        
+        $block_content = implode('&nbsp;&nbsp;|&nbsp;&nbsp;', $header_top_menu_part);
         $block['subject'] = t('');
         $block['content'] = $block_content;
         return $block;
         case 6:
          if (user_access('access extension settings blocks')) {
-          $calendar_link = ''; 
+          $calendar_link = '';
           if ( (variable_get('extension_settings_calendar1_shortname', '')) || (variable_get('extension_settings_calendar2_shortname', '')) || (variable_get('extension_settings_calendar3_shortname', '')) || (variable_get('extension_settings_calendar4_shortname', '')) ) {
             $calendar_link .= '<ul>';
           }
           if (variable_get('extension_settings_calendar1_shortname', ''))  {
-            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar1_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar1_shortname', '')) . ' Calendar</a></li>'; 
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar1_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar1_shortname', '')) . ' Calendar</a></li>';
           }
           if (variable_get('extension_settings_calendar2_shortname', ''))  {
-            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar2_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar2_shortname', '')) . ' Calendar</a></li>'; 
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar2_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar2_shortname', '')) . ' Calendar</a></li>';
           }
           if (variable_get('extension_settings_calendar3_shortname', ''))  {
-            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar3_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar3_shortname', '')) . ' Calendar</a></li>'; 
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar3_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar3_shortname', '')) . ' Calendar</a></li>';
           }
           if (variable_get('extension_settings_calendar4_shortname', ''))  {
-            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar4_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar4_shortname', '')) . ' Calendar</a></li>'; 
+            $calendar_link .= '<li><a title="Add/edit events" href="http://calendar.oregonstate.edu/advanced/today+30/' . variable_get('extension_settings_calendar4_shortname', '') . '">Edit ' . ucwords(variable_get('extension_settings_calendar4_shortname', '')) . ' Calendar</a></li>';
           }
           if ( (variable_get('extension_settings_calendar1_shortname', '')) || (variable_get('extension_settings_calendar2_shortname', '')) || (variable_get('extension_settings_calendar3_shortname', '')) || (variable_get('extension_settings_calendar4_shortname', '')) ) {
             $calendar_link .= '</ul>';
@@ -722,14 +704,14 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
         </div>
         <div style="margin: 15px 0; padding: 0 1.5%; height: 220px; width: 150px; float: left;">
           <div style="height: 110px;">
-            <a style="display: block; width: 118px; margin: auto;" href="http://extension.oregonstate.edu/catalog/" title="Publications">
-              <img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102" alt="Extension Publications image"/>
+            <a style="display: block; width: 118px; margin: auto;" href="https://catalog.extension.oregonstate.edu" title="OSU Extension Catalog">
+              <img src="http://extension.oregonstate.edu/_includes/images/pubs_white-bg.jpg" width="118" height="102" alt="OSU Extension Catalog image"/>
             </a>
           </div>
           <div style="width: 150px; margin-left: 10px; line-height: 16px; font-size: 12px;">
-            <strong>Publications</strong><br/>
+            <strong>OSU Extension Catalog</strong><br/>
             <span style="font-size: 11px;">
-              OSU Extension&#39;s Publications and Multimedia Catalog.
+              The Catalog is the source for current, peer-reviewed, research-based learning materials published by OSU Extension.
             </span>
           </div>
         </div>
@@ -758,7 +740,10 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $banner[$banners['2']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/tough_times/emergency/natural-disasters"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/happen-to-you.png" alt="It could happen to you" /></a></div>';
         }
         if ($banners['3']['display'] == 1) {
-          $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="https://pne.oregonstate.edu/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/pne-banner.png" alt="Professional and Noncredit Education" /></a></div>';
+          $banner[$banners['3']['weight']] = '<div class="emergency-banner"><a href="https://pace.oregonstate.edu/"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/pne-banner.png" alt="Professional and Continuing Education" /></a></div>';
+        }
+        if ($banners['4']['display'] == 1) {
+          $banner[$banners['4']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/fch/food-preservation"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/food-hotline-banner.png" alt="Food Preservation Hotline" /></a></div>';
         }
         ksort($banner);
         if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1) {
@@ -790,44 +775,44 @@ function extension_settings_preprocess_page(&$vars, $hook) {
 
 function extension_settings_globalblock_content($globalblock_id) {
   $fileurl = 'http://extension.oregonstate.edu/_includes/emergency/globalblock' . $globalblock_id . '.txt';
-  
+
   if (file_exists($fileurl) && is_readable($fileurl)) {
     $globaldata = file_get_contents($fileurl);
     $site_region = variable_get('extension_settings_region', '');
     $globalblock_content = '';
-      
+
     if ($globalblock_id == '1') {
       $globaldata = unserialize($globaldata);
       unset($emergency_content);
-      
+
       foreach (array_keys($globaldata) as $key) {
-      
-        if (in_array($site_region, $globaldata[$key]['regions'])) {      
+
+        if (in_array($site_region, $globaldata[$key]['regions'])) {
           $emergency_content .= '<!--[if IE 6]> <style type="text/css"> .emergency-arrow { background-image: url(\'' . base_path() . drupal_get_path('module', 'extension_settings') . '/images/emergency_arrow.gif\'); } .emergency-wrapper { background-image: url(\'' . base_path() . drupal_get_path('module', 'extension_settings') . '/images/emergency_wrapper_black.png\'); background-repeat: repeat-y; } .emergency-wrapper-black { top: 50%; }</style> <![endif]-->';
           $emergency_content .= '<div class="emergency emergency-' . $key . '"><h2 class="emergency-title">' . check_plain($globaldata[$key]['title']) . '</h2>';
           $emergency_content .= '<div class="emergency-body">' . $globaldata[$key]['content'] . '</div>';
           $emergency_content .= '</div>';
         }
       }
-      
+
       if (isset($emergency_content)) $globalblock_content = '<div class="emergency-wrapper"><div class="emergency-wrapper-black"><div class="emergency-info-label">Emergency<br />Information</div></div><div class="emergency-arrow"></div><div class="emergency-info">' . $emergency_content . '</div></div>';
       }
-      
+
       if ($globalblock_id == '2') {
-      
+
         if ($globaldata) {
           $regionslength = strpos($globaldata, '</regions>') - 47;
           $globalregions = explode(',', substr($globaldata, 47, $regionslength));
-          
+
           if (in_array($site_region, $globalregions)) {
             $globalcontentstart = strpos($globaldata, '</regions>') + 31;
             $globalblock_content = substr($globaldata, $globalcontentstart, -22);
           }
-          
+
         }
-        
+
       }
-      
+
     return $globalblock_content;
   }
 }
@@ -848,8 +833,8 @@ function extension_settings_global_block_1_code() {
   $global_content = variable_get('extension_settings_global_content_1', '');
   if ($global_content == '') {
     return NULL;
-  } 
-  else {  
+  }
+  else {
     foreach (array_keys($global_content) as $key) {
       $global_content[$key]['regions'] = extension_settings_remove_item_by_value($global_content[$key]['regions'], '0');
     }
@@ -862,7 +847,7 @@ function extension_settings_global_block_2_code() {
   $global_content = variable_get('extension_settings_global_content_2', '');
   if ($global_content == '') {
     return NULL;
-  } 
+  }
   else {
     $global_content['regions'] = extension_settings_remove_item_by_value($global_content['regions'], '0');
     $xml_data['regions'] = implode(',', $global_content['regions']);
@@ -970,19 +955,19 @@ function theme_extension_settings_formatter_comma($element) {
 * Implementation of hook_form_alter().
 */
 function extension_settings_form_alter(&$form, $form_state, $form_id) {
- 
+
   switch ($form_id) {
     // This is our form ID.
-   
+
    case 'osu_search_template_form':
     //dsm($form);
     unset($form['search-scope']['#title']);
     unset($form['search-scope']['#type']);
     unset($form['submit']['#value']);
    break;
-   
- 
-    
+
+
+
     case 'google_cse_searchbox_form':
       // remove form options on the form block
       unset($form['sitesearch']);
@@ -991,7 +976,7 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
       $form['link']['link']['#description'] = 'Start typing the name of the page to link to, enter a full URL (http://www.example.com), <strong>OR</strong> select Browse Server to upload or select a file.';
     break;
   }
-  
+
   if (strstr($form['form_id']['#value'], 'node')) {
     /*foreach (array_keys($form['menu']['parent']['#options']) as $item) {
       if (strstr($item, 'navigation')) unset($form['menu']['parent']['#options'][$item]);
@@ -999,7 +984,7 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
         if (strstr($item, 'primary-links')) unset($form['menu']['parent']['#options'][$item]);
       }
     }*/
-    
+
     if (isset($form['body_field'])) {
       $form['body_field']['teaser_include']['#default_value'] = TRUE;
       $form['body_field']['teaser_include']['#access'] = FALSE;
@@ -1008,6 +993,6 @@ function extension_settings_form_alter(&$form, $form_state, $form_id) {
     // $form['revision_information']['#access'] = FALSE;
     // $form['author']['#access'] = FALSE;
   }
-  
+
 }
 

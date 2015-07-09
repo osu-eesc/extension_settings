@@ -17,6 +17,8 @@ function extension_settings_banners() {
     $default_values['2']['weight'] = 1;
     $default_values['3']['display'] = 2;
     $default_values['3']['weight'] = 2;
+    $default_values['4']['display'] = 3;
+    $default_values['4']['weight'] = 3;
   }
 
   $form = array(
@@ -89,6 +91,27 @@ function extension_settings_banners() {
     ),
   );
 
+  $form['4'] = array();
+  $form['4']['display4'] = array(
+    '#type' => 'checkbox',
+    '#title' => t(''),
+    '#default_value' => $default_values['4']['display'],
+    '#attributes' => array(
+    ),
+  );
+  $form['4']['banner4'] = array(
+    '#value' => '<div><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/food-hotline-banner.png" /></div>',
+  );
+  $form['4']['weight4'] = array(
+    '#type' => 'weight',
+    '#title' => t('Weight'),
+    '#default_value' => $default_values['4']['weight'],
+    '#description' => t(''),
+    '#attributes' => array(
+      'class' => 'weight',
+    ),
+  );
+
   $form['help_text'] = array(
     '#value' => '<div class="help-text">' . t('Select which banners will display on the site as well as the order in which they will display.') . '</div>'
   );
@@ -109,6 +132,8 @@ function extension_settings_banners_submit($form, &$form_state) {
   $values['2']['weight'] = $form_state['values']['weight2'];
   $values['3']['display'] = $form_state['values']['display3'];
   $values['3']['weight'] = $form_state['values']['weight3'];
+  $values['4']['display'] = $form_state['values']['display4'];
+  $values['4']['weight'] = $form_state['values']['weight4'];
   variable_set('extension_settings_banners', $values);
   drupal_set_message('Banner settings have been saved.');
 }
@@ -134,7 +159,7 @@ function theme_extension_settings_banners($form)  {
   $header[] = array('data' => t('Banner'), 'class' => 'banner-banner');
   $header[] = array('data' => t('Weight'), 'class' => 'banner-weight');
   ksort($rows);
-  $output =   theme('table', $header, $rows, array('id' => 'extension-banners-table'));  
+  $output =   theme('table', $header, $rows, array('id' => 'extension-banners-table'));
   $output .=  drupal_render($form);
 
   drupal_add_tabledrag('extension-banners-table', 'order', 'sibling', 'weight');
