@@ -746,7 +746,7 @@ function extension_settings_block($op = 'list', $delta = 0, $edit = array()) {
           $banner[$banners['4']['weight']] = '<div class="emergency-banner"><a href="http://extension.oregonstate.edu/fch/food-preservation"><img src="' . base_path() . drupal_get_path('module', 'extension_settings') .'/images/food-hotline-banner.png" alt="Food Preservation Hotline" /></a></div>';
         }
         ksort($banner);
-        if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1) {
+        if ($banners['1']['display'] == 1 || $banners['2']['display'] == 1 || $banners['3']['display'] == 1 || $banners['4']['display'] == 1) {
           $banner_content = '<div class="emergency-banners-wrapper">' . implode('', $banner) . '</div>';
         }
         $block['subject'] = t('');
