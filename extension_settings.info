@@ -2,6 +2,6 @@
 name        = Extension Settings
 description = Provides common blocks and custom site configuration settings for EESC managed sites (drupal 6).
 package     = Extension
-version     = "6.x-1.12"
+version     = "6.x-1.13"
 core        =  "6.x"
 project     = "extension_settings"
