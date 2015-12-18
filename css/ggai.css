@@ -1,26 +1,28 @@
 /* get good at it block styles */
 div#ggai-block.ggai-block {
-	width: 100%; 
-	padding: 0 9% 0px 0; 
-	margin: 10px auto auto -6%; 
+	width: 100%;
+	padding: 0 9% 0px 0;
+	margin: 10px auto auto -6%;
 }
 .first div#ggai-block.ggai-block {
-  margin: 4px auto auto -6%; 
+  margin: 4px auto auto -6%;
 }
 /* Home bg img of boy*/
 .site-type-0.front div#ggai-block.ggai-block div.wm_sun {
-	background: url('../images/gfx_boy.png') right bottom no-repeat !important;
+	/*background: url('../images/gfx_boy.png') right bottom no-repeat !important;*/
 }
 
 div#ggai-block.ggai-block div.ggai-block-header {
-	display: block; 
+	display: block;
 	margin-left: 9%;
-	background: url('../images/gfx_hdr_ggai.png') no-repeat;
+	/*background: url('../images/gfx_hdr_ggai.png') no-repeat;*/
+	background: url('../images/communities-lg.png') no-repeat;
 	width: 243px;
 	height: 30px;
 }
 .layout-first-main-last div#ggai-block.ggai-block div.ggai-block-header {
-	background: url('../images/gfx_hdr_ggai_small.png') no-repeat;
+	/*background: url('../images/gfx_hdr_ggai_small.png') no-repeat;*/
+	background: url('../images/communities-sm.png') no-repeat;
 	width: 185px;
 	height: 23px;
 }
@@ -36,10 +38,10 @@ div#ggai-block.ggai-block div.wm_sun {
 div#ggai-block.ggai-block div.wm_sun ul,
 div#ggai-block.ggai-block div.wm_sun ul a {
 	list-style-position: inside;
-	text-align: left; 
-	color: #ca8602; 
-	font-weight: bold; 
-	font-size: 13px; 
+	text-align: left;
+	color: #ca8602;
+	font-weight: bold;
+	font-size: 13px;
 	font-family: 'EksjaExtremesRegular', Arial, Helvetica, Verdana, sans-serif;
 }
 
@@ -79,7 +81,7 @@ div#ggai-block.ggai-block div.wm_sun ul li.item-8 {
 }
 
 div#ggai-block.ggai-block div.wm_sun ul li span a {
-	line-height: 32px; 
+	line-height: 32px;
 	vertical-align: top;
 }
 
